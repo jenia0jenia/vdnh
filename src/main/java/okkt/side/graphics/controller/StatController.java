@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/stat")
 @CrossOrigin
-public class statController {
+public class StatController {
 
     private final statService statService;
 
