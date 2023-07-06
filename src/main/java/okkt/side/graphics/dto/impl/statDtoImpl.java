@@ -1,7 +1,7 @@
 package okkt.side.graphics.dto.impl;
 
 import lombok.RequiredArgsConstructor;
-import okkt.side.graphics.dto.interf.MainDto;
+import okkt.side.graphics.dto.interf.statDto;
 import okkt.side.graphics.model.OperationalDto;
 import okkt.side.graphics.model.RatingDto;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class MainDtoImpl implements MainDto {
+public class statDtoImpl implements statDto {
 
     private final JdbcTemplate template;
 
