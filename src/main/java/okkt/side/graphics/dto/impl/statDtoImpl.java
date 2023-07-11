@@ -26,6 +26,8 @@ public class statDtoImpl implements statDto {
                     .nekz(rs.getInt("NEKZ"))
                     .newR(rs.getInt("NewR"))
                     .regR(rs.getInt("RegR"))
+                     .kmv(rs.getInt("KMV"))
+                     .kfil(rs.getInt("KFIL"))
                     .build()
         );
 

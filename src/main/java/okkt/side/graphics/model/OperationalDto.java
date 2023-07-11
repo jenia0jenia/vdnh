@@ -22,4 +22,8 @@ public class OperationalDto {
     int pos;
 
     int nekz;
+
+    int kmv;
+
+    int kfil;
 }
