@@ -5,7 +5,7 @@ import okkt.side.graphics.model.RatingDto;
 
 import java.util.List;
 
-public interface statDto {
+public interface StatDao {
 
     public List<OperationalDto> getOperationalStat();
 

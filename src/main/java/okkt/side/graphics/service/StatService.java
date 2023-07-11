@@ -1,7 +1,7 @@
 package okkt.side.graphics.service;
 
 import lombok.RequiredArgsConstructor;
-import okkt.side.graphics.dto.interf.statDto;
+import okkt.side.graphics.dto.interf.StatDao;
 import okkt.side.graphics.model.OperationalDto;
 import okkt.side.graphics.model.RatingDto;
 import okkt.side.graphics.utils.DateChecker;
@@ -11,29 +11,29 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class statService {
+public class StatService {
 
-    private final statDto statDto;
+    private final StatDao statDao;
 
     private final DateChecker checker;
 
 
     public List<OperationalDto> getOperationalStat() {
-        return statDto.getOperationalStat();
+        return statDao.getOperationalStat();
 
     }
 
     public Integer getBooksAMinute() {
-        return statDto.getBooksAMinute();
+        return statDao.getBooksAMinute();
     }
 
     public Integer getBooksAmount() {
-        return statDto.getBooksAmount();
+        return statDao.getBooksAmount();
     }
 
     public List<RatingDto> getRatingDtos(String dateFrom, String dateTo) {
         checker.isDateValid(dateFrom);
         checker.isDateValid(dateTo);
-        return statDto.getRatingDtos(dateFrom, dateTo);
+        return statDao.getRatingDtos(dateFrom, dateTo);
     }
 }

@@ -3,7 +3,7 @@ package okkt.side.graphics.controller;
 import lombok.RequiredArgsConstructor;
 import okkt.side.graphics.model.OperationalDto;
 import okkt.side.graphics.model.RatingDto;
-import okkt.side.graphics.service.statService;
+import okkt.side.graphics.service.StatService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin
 public class StatController {
 
-    private final statService statService;
+    private final StatService statService;
 
     // Оперативная статистика
     @GetMapping("/operational/get")
