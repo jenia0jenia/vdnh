@@ -1,1 +1,1 @@
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://10.168.48.99:8070/stat';
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'localhost:8070/stat';
