@@ -1,3 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+*::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 .App {
   text-align: center;
+}
+.top-block {
+  width: 25%;
+  padding: 21px 42px;
+}
+.logo {
+  width: 320px;
+  max-width: 100%;
+}
+.slider{
+  margin: 0 auto;
+}
+.note {
+  width: 200px;
+}
+.se-extra-controls {
+  background-color: #fff  !important;
+}
+
+.note img {
+  margin: 0 auto;
+  width: 200px;
+  height: 260px;
+  object-fit: cover;
+}
+
+.slick-arrow::before {
+  display: none;
+}
+
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  width: 45px;
+  height: 45px;
+  
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+
+.slick-arrow.slick-prev:hover,
+.slick-arrow.slick-next:hover {
+  color: black;
+}
+
+.slick-arrow.slick-prev {
+  background-image: url('/public/images/cres.png');
+}
+.slick-arrow.slick-prev:hover {
+  background-image: url('/public/images/cres.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.slick-arrow.slick-next {
+  transform: rotate(180deg) translate(-50%, 50%);
+  background-image: url('/public/images/cres.png');
+}
+.slick-arrow.slick-next:hover {
+  background-image: url('/public/images/cres.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.loading {
+  position: relative;
+}
+
+.loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: #fff;
+}
+
+.loading::after {
+  content: "";
+  width: 200px;
+  height: 120px;
+  background-image: url('/public/images/notes_2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 8px 20px;
+  font-size: 39px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading.loading--blank::after {
+  content: "";
+  background: none;
 }
