@@ -20,7 +20,7 @@ services:
       context: frontend
       dockerfile: Dockerfile
       args:
-        REACT_APP_API_BASE_URL: "/stat"
+        REACT_APP_API_BASE_URL: "/api"
     ports:
       - "8030:80"
     depends_on:
