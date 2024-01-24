@@ -33,3 +33,13 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'okkt.side.graphics.securityappauth.SecurityAppAuthApplication'
+        )
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'

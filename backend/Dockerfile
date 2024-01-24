@@ -18,7 +18,8 @@ COPY --from=build /customjre $JAVA_HOME
 USER 1000
 
 
-WORKDIR /app
-COPY --from=app --chown=1000:1000 /app/build/libs/security-app-auth-0.0.1-SNAPSHOT.jar /app/app.jar
+# WORKDIR /app
+# первый build 
+COPY --from=app --chown=1000:1000 /app/build/libs/vdnh-project-0.0.1-SNAPSHOT.jar /app/app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-Xmx3g","-jar","/app/app.jar"]
