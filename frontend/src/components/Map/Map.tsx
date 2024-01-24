@@ -31,7 +31,7 @@ interface IOperationalData {
 
 type mapProp = "newR" | "regR" | "kv" | "pos" | "nekz" | "kmv" | "kfil";
 
-function Map(props: { property: mapProp, title: string }) {
+function Map(props: { property: mapProp; title: string }) {
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
   const [options, setOptions] = useState<SeriesAreaOptions>({
     type: "area",
@@ -47,40 +47,6 @@ function Map(props: { property: mapProp, title: string }) {
 
       setOptions({
         ...Regions,
-        // chart: {
-        // events: {
-        // load: function (e: PointerEvent) {
-        // console.log(this.series[0].searchPoint(e));
-        // console.log(e);
-
-        // this.series = [
-        //   {
-        //     mapData: formatGeoWithKVToday(data),
-        //     data: (function () {
-        //       return data.map(({ id, newR }) => [id?.toString(), newR]);
-        //     })(),
-        //     dataLabels: {
-        //       enabled: true,
-        //       // format: "{point.properties.KV}",
-        //       // this: PointLabelObject, options: DataLabelsOptions
-        //       formatter: function (
-        //         t: PointLabelObject,
-        //         options: DataLabelsOptions
-        //       ) {
-        //         console.log(this);
-        //         return "123";
-        //       },
-        //       position: "left",
-        //       style: {
-        //         fontSize: "16px",
-        //         color: "white",
-        //       },
-        //     },
-        //   } as any,
-        // ];
-        // },
-        // },
-        // } as ChartOptions,
         series: [
           {
             mapData: formatGeoWithKVToday(data, props.property),

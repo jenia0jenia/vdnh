@@ -1,7 +1,7 @@
 import Embed from "flat-embed";
 import { useEffect, useState } from "react";
 
-import notes from "../../data/notes.json";
+import notes from "data/notes.json";
 import settings from "./sliderSettings";
 
 import Slider from "react-slick";

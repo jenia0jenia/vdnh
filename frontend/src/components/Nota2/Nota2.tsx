@@ -1,10 +1,7 @@
 import Embed from "flat-embed";
 import { useEffect, useState } from "react";
 
-import notes from "../../data/notes.json";
-import settings from "./sliderSettings";
-
-import Slider from "react-slick";
+import notes from "data/notes.json";
 
 function Nota() {
   const [loading, setLoading] = useState(false);
@@ -49,7 +46,7 @@ function Nota() {
         },
       });
 
-      fetch("mxl/" + note.mxl)
+      fetch("/mxl/" + note.mxl)
         .then(function (response) {
           return response.arrayBuffer();
         })
@@ -87,12 +84,12 @@ function Nota() {
 
   return (
     <div
-      className="flex justify-between nota-2 gap-6 md:container m-auto unselectable"
+      className="flex justify-between items-start nota-2 gap-6 md:container m-auto unselectable"
       onResize={(e: React.FormEvent<HTMLDivElement>) => {onResize(e)}}
     >
       <div className="w-1/4">
         <div className="logo pb-8" id="logo">
-          <img className="" src="logo.svg" alt="logo" />
+          <img className="" src="/logo.svg" alt="logo" />
         </div>
 
         <div className="slider w-full">
@@ -119,7 +116,7 @@ function Nota() {
                         }}
                         key={i}
                       >
-                        <img src={"images/notes/" + note.image} alt={note.name} />
+                        <img src={"/images/notes/" + note.image} alt={note.name} />
                       </div>
                     );
                   })}

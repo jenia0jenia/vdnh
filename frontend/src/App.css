@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: rgba(65, 105, 225, 0.713);
+  --color-secondary: rgba(255, 0, 0, 0.663);
+}
+
 *::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 *::-webkit-scrollbar-track {
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
-}
+  background: rgba(0, 0, 0, 0.1);}
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.2);
@@ -137,4 +141,55 @@ html {
 .loading.loading--blank::after {
   content: "";
   background: none;
+}
+
+.nav {
+  color: white;
+}
+
+.nav__item {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__link {
+  font-size: 67px;
+  font-weight: bold;
+  display: block;
+  padding: 24px;
+}
+
+.nav__left {
+  background-color: var(--color-primary);
+}
+
+.nav__left .nav__link {
+  color: var(--color-secondary);
+}
+
+.nav__right {
+  background-color: var(--color-secondary);
+}
+
+.nav__right .nav__link {
+  color: var(--color-primary);
+}
+
+.error-page {
+  text-align: center;
+}
+
+.nav__link.hover-animation {
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  color: #d7e5eb;
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color .6s ease-in, box-shadow .6s ease-in;
+}
+
+.nav__link.hover-animation:hover {
+  box-shadow: inset 24em 0 0 0 #54b3d6;
+  color: white;
 }

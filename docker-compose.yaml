@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+  vdnh-backend:
+    container_name: vdnh-backend
+    image: vdnh-backend:latest
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    environment:
+      - FRONTEND_API_URL=10.168.48.51 # react local ip address
+    networks:
+      vdnhnet:
+        aliases:
+          - backend
+
+  vdnh-frontend:
+    container_name: vdnh-frontend
+    image: vdnh-frontend:latest
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: "/stat"
+    ports:
+      - "8014:80"
+    depends_on:
+      - vdnh-backend
+    networks:
+      - vdnhnet
+
+networks:
+  vdnhnet:
+    driver: bridge
