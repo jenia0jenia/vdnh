@@ -22,7 +22,7 @@ services:
       args:
         REACT_APP_API_BASE_URL: "/stat"
     ports:
-      - "8014:80"
+      - "8030:80"
     depends_on:
       - vdnh-backend
     networks:
