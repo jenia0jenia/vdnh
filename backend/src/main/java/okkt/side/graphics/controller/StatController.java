@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/stat")
+@RequestMapping("/api")
 @CrossOrigin
 public class StatController {
 
