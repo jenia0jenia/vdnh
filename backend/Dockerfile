@@ -18,7 +18,7 @@ COPY --from=build /customjre $JAVA_HOME
 USER 1000
 
 
-# WORKDIR /app
+WORKDIR /app
 # первый build 
 COPY --from=app --chown=1000:1000 /app/build/libs/vdnh-project-0.0.1-SNAPSHOT.jar /app/app.jar
 EXPOSE 8080
