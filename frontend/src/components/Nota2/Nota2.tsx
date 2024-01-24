@@ -1,7 +1,7 @@
 import Embed from "flat-embed";
 import { useEffect, useState } from "react";
 
-import notes from "data/notes.json";
+import notes from "data/notes";
 
 function Nota() {
   const [loading, setLoading] = useState(false);
@@ -11,8 +11,9 @@ function Nota() {
     loadNote(notes[0]);
   }, []);
 
-  onResize();
-
+  window.addEventListener("resize", onResize);
+  window.dispatchEvent(new Event("resize"));
+  
   function loadNote(note: {
     mxl: string;
     name: string;
@@ -69,59 +70,51 @@ function Nota() {
     // throw new Error("Function not implemented.");
   }
 
-  function onResize(e?: React.FormEvent<HTMLDivElement>) {
+  function onResize(this: Window, ev: UIEvent): any {
     const notes = document.getElementById("notes");
     const logo = document.getElementById("logo");
     // console.log(document.body.clientHeight);
     // console.log(logo?.offsetHeight);
     // console.log(window.innerHeight);
-    
-    
+
     if (notes && logo) {
-      notes.style.height = (window.innerHeight - logo?.offsetHeight - 41) + "px"
+      notes.style.height =
+        document.body.offsetHeight - logo?.offsetHeight - 24 + "px";
     }
   }
 
   return (
-    <div
-      className="flex justify-between items-start nota-2 gap-6 md:container m-auto unselectable"
-      onResize={(e: React.FormEvent<HTMLDivElement>) => {onResize(e)}}
-    >
-      <div className="w-1/4">
+    <div className="nota-page">
+      <div className="w-1/5 flex flex-col">
         <div className="logo pb-8" id="logo">
           <img className="" src="/logo.svg" alt="logo" />
         </div>
-
-        <div className="slider w-full">
-          <div
-            className={
-              "notes-side no-text" + (loading ? " loading loading--blank" : "")
-            }
-          >
-            <div className="px-8">
-              <div className="overflow-auto">
-                <div className="flex flex-col gap-6 items-center " id="notes">
-                  {notes.map((note, i) => {
-                    return (
-                      <div
-                        className="note"
-                        onClick={(e) => {
-                          Array.from(
-                            document.getElementsByClassName("note")
-                          ).forEach((el) => {
-                            el.classList.remove("is-active");
-                          });
-                          e.currentTarget.classList.add("is-active");
-                          loadNote(note);
-                        }}
-                        key={i}
-                      >
-                        <img src={"/images/notes/" + note.image} alt={note.name} />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+        <div
+          className={
+            "notes-side no-text" + (loading ? " loading loading--blank" : "")
+          }
+        >
+          <div className="overflow-auto">
+            <div className="notes__list" id="notes">
+              {notes.map((note, i) => {
+                return (
+                  <div
+                    className="note"
+                    onClick={(e) => {
+                      Array.from(
+                        document.getElementsByClassName("note")
+                      ).forEach((el) => {
+                        el.classList.remove("is-active");
+                      });
+                      e.currentTarget.classList.add("is-active");
+                      loadNote(note);
+                    }}
+                    key={i}
+                  >
+                    <img src={"/images/notes/" + note.image} alt={note.name} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

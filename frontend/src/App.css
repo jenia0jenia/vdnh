@@ -25,6 +25,11 @@
   background: rgba(0, 0, 0, 0.9);
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.9) rgba(0, 0, 0, 0.1);;
+}
+
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -37,6 +42,12 @@
 html {
   overflow-x: hidden;
 }
+body {
+  background-image: url('/public/bg.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
 
 .App {
   text-align: center;
@@ -46,11 +57,9 @@ html {
   padding: 21px 42px;
 }
 .logo {
-  width: 320px;
-  max-width: 100%;
+  width: 100%;
 }
 .slider{
-  margin: 0 auto;
 }
 .note {
   width: 200px;
@@ -192,4 +201,57 @@ html {
 .nav__link.hover-animation:hover {
   box-shadow: inset 24em 0 0 0 #54b3d6;
   color: white;
+}
+
+.notes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.notes-side {
+  height: calc(100vh - 250px);
+}
+
+.nota-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 24px;
+  width: 1560px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.note {
+  position: relative;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.note:hover img {
+  opacity: 0.6;
+}
+.note::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background-color: #ff9e9e;
+  background-image: url('/public/play.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  display: none;
+  z-index: 10;
+  border-radius: 100%;
+  transition: all .5s ease;
+}
+.note:hover::before {
+  display: block;
 }
