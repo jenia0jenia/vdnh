@@ -13,11 +13,11 @@ function Nota() {
 
   window.addEventListener("resize", onResize);
   window.dispatchEvent(new Event("resize"));
-  
+
   function loadNote(note: {
     mxl: string;
     name: string;
-    image: string;
+    image?: string;
     volume?: number;
     speed?: number;
   }): import("react").MouseEventHandler<HTMLDivElement> | undefined {
@@ -56,7 +56,7 @@ function Nota() {
         })
         .then(function () {
           embed.setPlaybackSpeed(note.speed || 0.8).then(function () {});
-          embed.setMasterVolume({ volume: note.volume || 80 });
+          embed.setMasterVolume({ volume: note.volume || 60 });
           setTitle(note.name);
           setLoading(false);
         })
@@ -111,7 +111,7 @@ function Nota() {
                     }}
                     key={i}
                   >
-                    <img src={"/images/notes/" + note.image} alt={note.name} />
+                    {note.image ? <img src={"/images/notes/" + note.image} alt={note.name} /> : <div className="note__noimage">{note.name}</div> }
                   </div>
                 );
               })}
@@ -122,7 +122,7 @@ function Nota() {
 
       <div className="w-3/4">
         <div className="flex flex-col">
-          <div className="text-left">
+          <div className="text">
             <p>
               Перед вами результат оцифровки произведений всем известных
               композиторов. Эту трудную работу сделал робот. Теперь мы можем
@@ -139,7 +139,7 @@ function Nota() {
         </div>
 
         <div className={"w-full pt-8 px-8" + (loading ? " loading" : "")}>
-          <h1 className="text-4xl mb-4">{title}</h1>
+          <h1 className="notes__h1">{title}</h1>
 
           <div id="embed-parent"></div>
         </div>
