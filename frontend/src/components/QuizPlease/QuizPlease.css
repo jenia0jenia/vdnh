@@ -1,0 +1,193 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400);
+
+* {
+    box-sizing: border-box;
+}
+
+.quizplease__button {
+  display: block;
+  width: 100%;
+  padding: 12px 8px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.quizplease__item {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.quizplease__item.is-disabled {
+  background-color: #d8bfd884;
+  border-color: #d8bfd884;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: not-allowed;
+}
+
+.text-card {
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.text-card.text-card--blue {
+  background-color: #f1fbff;
+}
+
+.text-card.text-card--gray {
+  background-color: #ededed;
+}
+
+.options__item {
+  display: block;
+  width: 100%;
+  margin-bottom: 24px;
+  cursor: pointer;
+  padding: 12px 8px;
+  border: 2px solid var(--color-primary);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.options__item.is-current-answer,
+.options__item:hover {
+  background-color: var(--color-primary);
+}
+
+.quizplease__head {
+  padding: 24px;
+  background-color: #beeeff;
+  margin-bottom: 24px;
+}
+
+.answer__back-button {
+  width: 220px;
+  padding: 12px;
+  background-color: #a1ffe0;
+  margin: auto;
+}
+
+.question__answer-button {
+  width: 220px;
+  padding: 12px;
+  background-color: #a1ffe0;
+  margin: auto;
+}
+
+.timer-group {
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+  width: 400px;
+}
+
+.timer {
+  border-radius: 50%;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  width: 100px;
+}
+
+.timer .hand {
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 49.5%;
+}
+
+.timer .hand span {
+  border: 50px solid #a1ffe0;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(225deg);
+  width: 0;
+}
+
+.timer .hand:first-child {
+  transform: rotate(180deg);
+}
+
+.timer .hand span {
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.timer .hand:first-child span {
+  animation-name: spin1;
+}
+
+.timer .hand:last-child span {
+  animation-name: spin2;
+}
+
+.timer.minute {
+  height: 350px;
+  left: 25px;
+  width: 350px;
+  top: 25px;
+}
+
+.timer.minute .hand span {
+  animation-duration: 60s;
+  border-top-color: #a1ffe0;
+  border-right-color: #a1ffe0;
+  border-width: 175px;
+}
+
+.face {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  height: 296px;
+  left: 52px;
+  padding: 165px 40px 0;
+  position: absolute;
+  width: 296px;
+  text-align: center;
+  top: 52px;
+}
+
+.face p {
+  border-radius: 20px;
+  font-size: 76px;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  width: 260px;
+  left: 20px;
+  color: black;
+  transform: translate(0, -50%);
+}
+
+@keyframes spin1 {
+  0% {
+    transform: rotate(225deg);
+  }
+  50% {
+    transform: rotate(225deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: rotate(225deg);
+  }
+  50% {
+    transform: rotate(405deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}

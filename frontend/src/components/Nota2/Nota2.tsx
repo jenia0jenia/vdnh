@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import notes from "data/notes";
 
-function Nota() {
+function Nota(...props: any[]) {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState(notes[0].name);
 

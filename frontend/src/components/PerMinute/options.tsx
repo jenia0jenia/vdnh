@@ -9,7 +9,7 @@ import Highcharts, {
 
 import { apiRequest } from "../../services/API/API";
 
-const TIMER = 20;
+const TIMER = 10;
 const today = new Date(),
   day = 1000 * 60 * 60 * 24;
 

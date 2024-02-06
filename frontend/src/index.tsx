@@ -6,9 +6,16 @@ import ErrorPage from "./error-page";
 import "./index.css";
 import App from "./App";
 import Stat from "./components/Stat/Stat";
-import Nota2 from "./components/Nota2/Nota2";
+import Nota3 from "./components/Nota3/Nota3";
 
 import Root from "./routes/root";
+import AnswerContext, {
+  AnswerProvider,
+} from "contexts/AnswerContext/AnswerContext";
+import QuizPlease from "components/QuizPlease/QuizPlease";
+import Question from "components/QuizPlease/Question";
+import QuizPleaseList from "components/QuizPlease/QuizPleaseList";
+import Answer from "components/QuizPlease/Answer";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +30,25 @@ const router = createBrowserRouter([
   },
   {
     path: "notes",
-    element: <Nota2 />,
+    element: <Nota3 text="text" />,
+  },
+  {
+    path: "quizplease",
+    element: <QuizPlease />,
+    children: [
+      {
+        path: "",
+        element: <QuizPleaseList />,
+      },
+      {
+        path: ":id",
+        element: <Question />,
+      },
+      {
+        path: ":id/answer",
+        element: <Answer />,
+      },
+    ],
   },
 ]);
 
@@ -33,6 +58,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   // <React.StrictMode>
-  <RouterProvider router={router} />
+  <AnswerProvider>
+    <App>
+      <RouterProvider router={router} />
+    </App>
+  </AnswerProvider>
   // </React.StrictMode>
 );
