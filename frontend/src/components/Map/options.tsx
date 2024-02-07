@@ -1,5 +1,5 @@
 import Highcharts, { SeriesAreaOptions } from "highcharts";
-import geojson from "../../data/spb-district.json";
+import geojson from "data/spb-district.json";
 // import { libs } from "./libs";
 
 export const Regions: Highcharts.Options = {
@@ -10,6 +10,8 @@ export const Regions: Highcharts.Options = {
   // chart: {
   //   // type: "area",
   // },
+
+  credits: { enabled: false },
 
   mapNavigation: {
     enabled: true,
@@ -44,5 +46,4 @@ export const Regions: Highcharts.Options = {
   //     // type: "area",
   //   } as SeriesAreaOptions,
   // ],
-
 };

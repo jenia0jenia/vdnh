@@ -2,9 +2,9 @@ import Map from "../Map/Map";
 import Top from "../Top/Top";
 import PerMinute from "../PerMinute/PerMinute";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { getValidDate } from "../../utils";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+import { getValidDate } from "utils";
 
 function App() {
   const today = new Date();

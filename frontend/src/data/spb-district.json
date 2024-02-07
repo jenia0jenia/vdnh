@@ -15,7 +15,7 @@
 
         "srid": "4326",
         "id": "1115366",
-        "name": "Kurortny District",
+        "name": "Курортный район",
         "localname": "Курортный район",
         "official_name": "",
         "boundary": "administrative",
@@ -2626,7 +2626,7 @@
 
         "srid": "4326",
         "id": "368287",
-        "name": "Nevsky District",
+        "name": "Невский район",
         "localname": "Невский район",
         "official_name": "",
         "boundary": "administrative",
@@ -2888,7 +2888,7 @@
 
         "srid": "4326",
         "id": "1114905",
-        "name": "Petrogradsky District",
+        "name": "Петроградский район",
         "localname": "Петроградский район",
         "official_name": "",
         "boundary": "administrative",
@@ -3108,7 +3108,7 @@
 
         "srid": "4326",
         "id": "1114354",
-        "name": "Vyborgsky District",
+        "name": "Выборгский район",
         "localname": "Выборгский район",
         "official_name": "",
         "boundary": "administrative",
@@ -5752,7 +5752,7 @@
         "hc-middle-x": 0.44,
         "hc-middle-y": 0.45,
         "hc-key": "337424",
-
+  
         "srid": "4326",
         "id": "337424",
         "name": "Колпинский район",
@@ -5766,6 +5766,7 @@
         "timestamp": "2019-11-01 23:02:02",
         "rpath": "337424,337422,1216601,60189,0",
         "alltags": {
+          "url": "http://www.gov.spb.ru/law?d&nd=8414528&nh=0&header=010000006V00#I0",
           "name:pl": "rejon kołpinski",
           "wikidata": "Q1326302",
           "wikipedia": "ru:Колпинский район",

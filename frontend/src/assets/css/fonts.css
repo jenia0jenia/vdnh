@@ -1,0 +1,149 @@
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Black.woff") format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-BlackItalic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-BlackItalic.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-ExtraBold.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-ExtraBold.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-ExtraBoldItalic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-ExtraBoldItalic.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Bold.woff") format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-BoldItalic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-BoldItalic.ttf")
+      format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Medium.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-MediumItalic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-MediumItalic.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Regular.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Regular.ttf")
+      format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Italic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Light.woff") format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-LightItalic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-LightItalic.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-ExtraLight.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-ExtraLight.ttf")
+      format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-ExtraLight.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-ExtraLight.ttf")
+      format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-Thin.woff") format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TTNormsPro";
+  src: url("../fonts/FontsTTNormsPro/woff/TTNormsPro-ThinItalic.woff")
+      format("woff"),
+    url("../fonts/FontsTTNormsPro/ttf/TTNormsPro-ThinItalic.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}

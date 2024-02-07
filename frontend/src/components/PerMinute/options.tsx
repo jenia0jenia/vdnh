@@ -7,7 +7,7 @@ import Highcharts, {
   SeriesSplineOptions,
 } from "highcharts";
 
-import { apiRequest } from "../../services/API/API";
+import { apiRequest } from "services/API/API";
 
 const TIMER = 10;
 const today = new Date(),
@@ -87,7 +87,7 @@ export const BooksPerMinute: Highcharts.Options = {
   },
 
   yAxis: {
-    max: 300,
+    max: 600,
     title: {
       text: "Количество",
     },

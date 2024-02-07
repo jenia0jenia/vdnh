@@ -10,9 +10,9 @@ import Highcharts, {
 import HighchartsReact from "highcharts-react-official";
 
 import "./Map.css";
-import { apiRequest } from "../../services/API/API";
+import { apiRequest } from "services/API/API";
 import { Regions } from "./options";
-import geojson from "../../data/spb-district.json";
+import geojson from "data/spb-district.json";
 import { libs } from "./libs";
 
 require("highcharts/modules/map")(Highcharts);
@@ -40,10 +40,13 @@ function Map(props: { property: mapProp; title: string }) {
 
   useEffect(() => {
     apiRequest("/operational/get")?.then((data: IOperationalData[]) => {
-      data = data.map((lib) => ({
-        ...lib,
-        id: libs[lib.libName.trim()],
-      }));
+      console.log(data);
+      data = data.map((lib) => {
+        return {
+          ...lib,
+          id: libs[lib.libName.trim()],
+        };
+      });
 
       setOptions({
         ...Regions,
@@ -51,7 +54,10 @@ function Map(props: { property: mapProp; title: string }) {
           {
             mapData: formatGeoWithKVToday(data, props.property),
             data: (function () {
-              return data.map(({ id, newR }) => [id?.toString(), newR]);
+              return data.map(({ id, ...rest }) => [
+                id?.toString(),
+                rest[props.property],
+              ]);
             })(),
             dataLabels: {
               enabled: true,

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 
 import "./index.css";
+import "./assets/css/fonts.css";
 import App from "./App";
 import Stat from "./components/Stat/Stat";
 import Nota3 from "./components/Nota3/Nota3";

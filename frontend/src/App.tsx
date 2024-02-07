@@ -9,9 +9,11 @@ import AnswerContext from "./contexts/AnswerContext/AnswerContext";
 import Nota2 from "./components/Nota2/Nota2";
 
 import "./App.css";
+import "./assets/css/fonts.css";
+import "./assets/css/fontawesome.css";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import { getValidDate } from "./utils";
 
 interface IProps {
@@ -26,10 +28,6 @@ function App({ children }: IProps) {
   return (
     <div className="App">
       { children }
-      {/* <Nota2></Nota2> */}
-
-      {/* <Nota></Nota> */}
-
     </div>
   );
 }

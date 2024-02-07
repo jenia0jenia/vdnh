@@ -3,7 +3,9 @@
 }
 
 .book {
+    width: 200px;
     padding: 12px;
+    flex-shrink: 0;
 }
 
 .book-count {

@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-// const SECOND = 1000;
-// const MINUTE = SECOND * 60;
+const oneSecond = 1000;
+const oneMinute = oneSecond * 60;
 
-function Timer() {
-  const [timeIsUp, setTimeIsUp] = useState(false);
+interface IProps {
+  duration?: number;
+}
+
+function Timer({ ...props }: IProps) {
+  const [timerActive, setTimerActive] = useState(true);
   let answer = false;
 
-  const oneSecond = 1000;
-  const oneMinute = oneSecond * 60;
   const startDate = new Date();
 
   const requestAnimationFrame = (function () {
@@ -22,11 +24,10 @@ function Timer() {
 
   useEffect(() => {
     tick();
+    return () => {
+      setTimerActive(false);
+    };
   }, []);
-
-  //   useEffect(() => {
-  //     tick();
-  //   }, [timeIsUp]);
 
   function tick() {
     const face = document.getElementById("lazy");
@@ -45,36 +46,41 @@ function Timer() {
 
     if (face?.innerText) face.innerText = parts.join(":");
 
-    if (elapsed > oneMinute) {
-      window.alert("Время вышло!");
-      const timer = document.getElementById("timer");
-      timer?.classList.remove("timer");
-      //   const eventStop = new Event("stop");
-      //   //   setTimeIsUp(() => {});
-      //   timer?.addEventListener("stop", (e) => {
-      //   });
-      //   timer?.remove();
-      //   timer?.dispatchEvent(eventStop);
-    } else if (answer) {
-    } else {
-      requestAnimationFrame(tick);
+    if (timerActive) {
+      if (elapsed > oneMinute) {
+        window.alert("Время вышло!");
+        const timer = document.getElementById("timer");
+        timer?.classList.remove("timer");
+        //   const eventStop = new Event("stop");
+        //   //   setTimeIsUp(() => {});
+        //   timer?.addEventListener("stop", (e) => {
+        //   });
+        //   timer?.remove();
+        //   timer?.dispatchEvent(eventStop);
+      } else if (answer) {
+      } else {
+        requestAnimationFrame(tick);
+      }
     }
   }
 
   return (
-    <div className="timer-group">
-      <div className="timer minute" id="timer">
-        <div className="hand">
-          <span></span>
+    <>
+    <div className="timer-overlay"></div>
+      <div className="timer-group">
+        <div className="timer minute" id="timer">
+          <div className="hand">
+            <span></span>
+          </div>
+          <div className="hand">
+            <span></span>
+          </div>
         </div>
-        <div className="hand">
-          <span></span>
+        <div className="face">
+          <p id="lazy">00:00</p>
         </div>
       </div>
-      <div className="face">
-        <p id="lazy">00:00</p>
-      </div>
-    </div>
+    </>
   );
 }
 

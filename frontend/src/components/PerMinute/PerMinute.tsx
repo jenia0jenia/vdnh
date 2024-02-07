@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 
-import { apiRequest } from "../../services/API/API";
+import { apiRequest } from "services/API/API";
 import { BooksPerMinute } from "./options";
 
 // import "./PerMinute.css";

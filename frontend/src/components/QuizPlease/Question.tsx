@@ -60,7 +60,7 @@ function Question() {
             </div>
           </div>
           <div className="col-span-2">
-            <Timer></Timer>
+            {/* <Timer></Timer> */}
           </div>
         </div>
       </div>

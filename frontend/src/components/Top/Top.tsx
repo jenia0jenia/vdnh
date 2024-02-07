@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
-import { apiRequest } from "../../services/API/API";
+import { apiRequest } from "services/API/API";
 
 import "./Top.css";
 import { TopOptions } from "./options";
-import { getValidDate } from "../../utils";
+import { getValidDate } from "utils";
 
 interface ITopProps {
   dateFrom: string | null;
@@ -43,17 +43,19 @@ function Top(props: ITopProps | undefined) {
   return (
     <div className="Top">
       <h2 className="title">Книги по количеству выдач</h2>
-      <div className="flex" id="bookContainer">
-        {topBooks.map((book, i) => {
-          return (
-            <div className="book" key={i}>
-              <div className="book-count">
-                <span className="book-count-digit">{book.k}</span>
+      <div className="w-full m-auto mb-14">
+        <div className="flex overflow-x-auto px-10" id="bookContainer">
+          {topBooks.map((book, i) => {
+            return (
+              <div className="book" key={i}>
+                <div className="book-count">
+                  <span className="book-count-digit">{book.k}</span>
+                </div>
+                <img src={book.cover} height={120 + book.k * 10} width={200} />
               </div>
-              <img src={book.cover} height={120 + book.k * 10} />
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       {/* <HighchartsReact
         highcharts={Highcharts}
@@ -65,6 +67,5 @@ function Top(props: ITopProps | undefined) {
     </div>
   );
 }
-
 
 export default Top;
