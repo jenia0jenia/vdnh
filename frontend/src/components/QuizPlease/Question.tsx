@@ -30,7 +30,7 @@ function Question() {
                   return (
                     <button
                       className={
-                        "quizplease__button options__item" +
+                        "options__item" +
                         (currentAnswer === i ? " is-current-answer" : "")
                       }
                       key={i}
@@ -44,7 +44,10 @@ function Question() {
                 })}
               </div>
               <button
-                className="quizplease__button question__answer-button"
+                className={`question__answer-button clip-path-button${
+                  currentAnswer === -1 ? " disabled" : ""
+                }`}
+                disabled={currentAnswer === -1 ? true : false}
                 onClick={(e) => {
                   dispatch &&
                     dispatch({
@@ -59,9 +62,7 @@ function Question() {
               </button>
             </div>
           </div>
-          <div className="col-span-2">
-            {/* <Timer></Timer> */}
-          </div>
+          <div className="col-span-2">{/* <Timer></Timer> */}</div>
         </div>
       </div>
     </>

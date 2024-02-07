@@ -2,10 +2,11 @@ import AnswerContext from "contexts/AnswerContext/AnswerContext";
 
 import { useContext } from "react";
 import questions from "data/questions";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 function QuizPleaseList() {
   const { answers } = useContext(AnswerContext);
+  const navigate = useNavigate();
   return (
     <>
       <h1 className="text-4xl mb-8">Вопросы викторины</h1>
@@ -16,21 +17,16 @@ function QuizPleaseList() {
               className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3"
               key={i}
             >
-              {answers[i] < 0 ? (
-                <NavLink
-                  to={i.toString()}
-                  className={"quizplease__button quizplease__item"}
-                >
-                  {question.title}
-                </NavLink>
-              ) : (
-                <button
-                  className="quizplease__button quizplease__item is-disabled"
-                  disabled
-                >
-                  {question.title}
-                </button>
-              )}
+              <button
+                onClick={(e) => {
+                  answers[i] < 0 && navigate(i.toString());
+                }}
+                className={
+                  "quizplease__item clip-path-button" + (answers[i] < 0 ? "" : " disabled")
+                }
+              >
+                {question.title}
+              </button>
             </div>
           );
         })}

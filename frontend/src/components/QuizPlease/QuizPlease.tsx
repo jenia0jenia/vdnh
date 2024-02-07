@@ -20,7 +20,7 @@ function QuizPlease() {
               <div className="grid grid-cols-12">
                 <div className="col-span-2 sm:col-span-2 lg:col-span-2">
                   <button
-                    className=""
+                    className="quizplease__again"
                     onClick={(e) => {
                       if (window.confirm("Вы уверены?")) {
                         dispatch &&
@@ -33,8 +33,8 @@ function QuizPlease() {
                   </button>
                 </div>
                 <div className="col-span-2 sm:col-span-2 lg:col-span-2">
-                  <div>
-                    Правильных ответов:{" "}
+                  <div className="quizplease__stat">
+                    Ответов:{" "}
                     {answers.reduce((value, answer) => {
                       return value + (answer < 0 ? 0 : 1);
                     }, 0)}
