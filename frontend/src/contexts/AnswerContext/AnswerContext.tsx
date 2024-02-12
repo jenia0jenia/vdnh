@@ -1,4 +1,4 @@
-import questions from "data/questions";
+import quizplease from "data/quizplease";
 import {
   Dispatch,
   ReactElement,
@@ -9,21 +9,29 @@ import {
   useReducer,
 } from "react";
 
-const AnswerContext = createContext<{ answers: TAnswers }>({
+const AnswerContext = createContext<{ answers: TDispatchAnswerObj }>({
   answers: answersInit(),
 });
 
-export type TAnswers = number[];
+export type TDispatchAnswerObj = {
+  [quizname: string]: {
+    [answerId: string]: number;
+  };
+};
 
 export interface IAnswer {
-  action: "answer" | "reset";
-  key: number;
-  value: number;
+  quizplease: string;
+  answerId: string;
+  answerValue: number;
 }
 
-const AnswerDispacthContext = createContext<React.Dispatch<IAnswer> | null>(
-  null
-);
+export interface IDispatchAnswer {
+  action: "answer" | "reset";
+  answer?: IAnswer;
+}
+
+const AnswerDispacthContext =
+  createContext<React.Dispatch<IDispatchAnswer> | null>(null);
 
 interface IProps {
   children: ReactElement;
@@ -41,18 +49,25 @@ export function AnswerProvider({ children }: IProps) {
   );
 }
 
-function answersReducer(answers: TAnswers, answer: IAnswer) {
-  console.log(answers);
-  console.log(answer);
-  
-  if (answer.action === "reset") {
+function answersReducer(
+  answers: TDispatchAnswerObj,
+  newAnswer: IDispatchAnswer
+) {
+  if (newAnswer.action === "reset") {
     return answersInit();
   }
 
-  if (answer.action === "answer") {
-      const result: TAnswers = [...answers];
-      result[answer.key] = answer.value;
+  if (newAnswer.action === "answer") {
+    const result: TDispatchAnswerObj = { ...answers };
+    if (typeof newAnswer.answer !== "undefined") {
+      if (!result[newAnswer.answer.quizplease])
+        result[newAnswer.answer.quizplease] = {};
+      result[newAnswer.answer.quizplease][`${newAnswer.answer.answerId}`] =
+        newAnswer.answer.answerValue;
       return result;
+    } else {
+      console.log("no new answer");
+    }
   }
 
   return answers;
@@ -68,6 +83,6 @@ export function useAnswersDispatch() {
 
 export default AnswerContext;
 
-function answersInit(): TAnswers {
-  return new Array(questions.length).fill(-1);
+function answersInit(): TDispatchAnswerObj {
+  return {};
 }

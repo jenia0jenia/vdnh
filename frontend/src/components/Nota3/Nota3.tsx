@@ -17,7 +17,11 @@ import { alphatab } from "./script";
 
 function Nota(...props: any[]) {
   const [loading, setLoading] = useState(false);
-  const [title, setTitle] = useState(notes[0].name);
+  const [currentNote, setNota] = useState({
+    id: 0,
+    title: notes[0].name,
+    active: true,
+  });
 
   useEffect(function () {
     alphatab();
@@ -39,14 +43,13 @@ function Nota(...props: any[]) {
               {notes.map((note, i) => {
                 return (
                   <div
-                    className="note"
+                    className={"note" + (note.id === i ? " is-active" : "")}
                     onClick={(e) => {
-                      Array.from(
-                        document.getElementsByClassName("note")
-                      ).forEach((el) => {
-                        el.classList.remove("is-active");
+                      setNota({
+                        id: note.id,
+                        title: note.name,
+                        active: true,
                       });
-                      e.currentTarget.classList.add("is-active");
                     }}
                     key={i}
                   >
@@ -85,7 +88,7 @@ function Nota(...props: any[]) {
         </div>
 
         <div className={"w-full pt-8 px-8" + (loading ? " loading" : "")}>
-          <h1 className="notes__h1">{title}</h1>
+          <h1 className="notes__h1">{currentNote.title}</h1>
 
           <div className="at-wrap">
             <div className="at-overlay">

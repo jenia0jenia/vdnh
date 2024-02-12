@@ -1,0 +1,13 @@
+{
+    "spellright.language": [
+        "en",
+        "ru"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "typescriptreact"
+    ],
+    "cmake.configureOnOpen": false
+}

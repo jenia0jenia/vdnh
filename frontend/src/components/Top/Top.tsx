@@ -6,6 +6,8 @@ import { apiRequest } from "services/API/API";
 import "./Top.css";
 import { TopOptions } from "./options";
 import { getValidDate } from "utils";
+import { FTP_BASE_URL } from "../../constants/index";
+import { BASE_URL } from "../../constants";
 
 interface ITopProps {
   dateFrom: string | null;
@@ -46,12 +48,17 @@ function Top(props: ITopProps | undefined) {
       <div className="w-full m-auto mb-14">
         <div className="flex overflow-x-auto px-10" id="bookContainer">
           {topBooks.map((book, i) => {
+            const cover =
+              !process.env.NODE_ENV || process.env.NODE_ENV === "development"
+                ? book.cover.replace(FTP_BASE_URL, BASE_URL)
+                : book.cover.replace(FTP_BASE_URL, "");
+
             return (
               <div className="book" key={i}>
                 <div className="book-count">
                   <span className="book-count-digit">{book.k}</span>
                 </div>
-                <img src={book.cover} height={120 + book.k * 10} width={200} />
+                <img src={cover} height={120 + book.k * 10} width={200} />
               </div>
             );
           })}

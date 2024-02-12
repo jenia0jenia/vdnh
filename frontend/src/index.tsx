@@ -13,10 +13,15 @@ import Root from "./routes/root";
 import AnswerContext, {
   AnswerProvider,
 } from "contexts/AnswerContext/AnswerContext";
-import QuizPlease from "components/QuizPlease/QuizPlease";
+import QuizPleaseTypeStepByStep from "components/QuizPlease/QuizPleaseTypeStepByStep";
 import Question from "components/QuizPlease/Question";
 import QuizPleaseList from "components/QuizPlease/QuizPleaseList";
 import Answer from "components/QuizPlease/Answer";
+import QuizPleaseMain from "components/QuizPlease/QuizPleaseMain";
+import QuestionList from "components/QuizPlease/QuestionList";
+// import QuizPleaseTypeQuestionList from "components/QuizPlease/QuizPleaseTypeQuestionList";
+import QuizPleaseTypeTest from "components/QuizPlease/QuizPleaseTypeTest";
+import QuizPleaseHello from "components/QuizPlease/QuizPleaseHello";
 
 const router = createBrowserRouter([
   {
@@ -35,19 +40,61 @@ const router = createBrowserRouter([
   },
   {
     path: "quizplease",
-    element: <QuizPlease />,
+    element: <QuizPleaseMain />,
     children: [
       {
         path: "",
         element: <QuizPleaseList />,
       },
       {
-        path: ":id",
-        element: <Question />,
+        path: ":slug/hello",
+        element: <QuizPleaseHello />,
       },
       {
-        path: ":id/answer",
-        element: <Answer />,
+        path: ":slug",
+        element: <QuizPleaseTypeStepByStep />,
+        children: [
+          {
+            path: ":id",
+            element: <Question />,
+          },
+          {
+            path: ":id/answer",
+            element: <Answer />,
+          },
+        ],
+      },
+      // {
+      //   path: "question-list/:slug",
+      //   element: <QuizPleaseTypeQuestionList />,
+      //   children: [
+      //     {
+      //       path: "",
+      //       element: <QuestionList />,
+      //     },
+      //     {
+      //       path: ":id",
+      //       element: <Question />,
+      //     },
+      //     {
+      //       path: ":id/answer",
+      //       element: <Answer />,
+      //     },
+      //   ],
+      // },
+      {
+        path: "test/:slug",
+        element: <QuizPleaseTypeTest />,
+        children: [
+          {
+            path: ":id",
+            element: <Question />,
+          },
+          {
+            path: "result",
+            element: <Answer />,
+          },
+        ],
       },
     ],
   },
