@@ -5,13 +5,12 @@ import AnswerContext, {
 
 import { useContext } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import "./QuizPlease.css";
 import quizplease from "data/quizplease";
 
 function QuizPleaseMain() {
   return (
     <>
-      <div className="">
+      <div className="quizplease">
         <Outlet />
       </div>
     </>

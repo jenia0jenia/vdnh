@@ -1,33 +1,24 @@
-import AnswerContext from "contexts/AnswerContext/AnswerContext";
+import AnswerContext from 'contexts/AnswerContext/AnswerContext';
 
-import { useContext } from "react";
-import quizplease from "data/quizplease";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import quizplease from 'data/quizplease';
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
+import QuizPleaseHeader from './QuizPleaseHeader';
+import QuizPleaseFooter from './QuizPleaseFooter';
+import { TNavParams } from './Functions';
 
 function QuizPleaseTypeTest() {
   const navigate = useNavigate();
+  const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   return (
     <>
-      <div className="grid grid-cols-12">
-        {Object.keys(quizplease).map((key, i) => {
-          const { name, slug: quizname } = quizplease[key];
-          return (
-            <div
-              className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3"
-              key={i}
-            >
-              <button
-                onClick={(e) => {
-                  navigate(quizname);
-                }}
-                className={"quizplease__item clip-path-button"}
-              >
-                {name}
-              </button>
-            </div>
-          );
-        })}
+      <QuizPleaseHeader></QuizPleaseHeader>
+      <div className={`quizplease__main p-8 quizname-${quizname}`}>
+        <div className='container m-auto relative'>
+          <Outlet></Outlet>
+        </div>
       </div>
+      <QuizPleaseFooter></QuizPleaseFooter>
     </>
   );
 }

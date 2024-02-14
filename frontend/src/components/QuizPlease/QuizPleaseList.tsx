@@ -8,21 +8,27 @@ function QuizPleaseList() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="quizplease">
+      <div className="quizplease__list-wrapper">
         <div className="flex items-stretch quizplease__list">
           {Object.keys(quizplease).map((key, i) => {
-            const { name, slug: quizname } = quizplease[key];
+            const {
+              name,
+              slug: quizname,
+              color = "",
+              text_before,
+            } = quizplease[key];
             return (
               <div
                 onClick={(e) => {
-                  navigate(`${quizname}/hello`);
+                  text_before
+                    ? navigate(`${quizname}/hello`)
+                    : navigate(`${quizname}/0`);
                 }}
                 key={i}
                 className="quizplease__item h-screen"
+                style={{ backgroundColor: color }}
               >
-                <div className="quizplease__item-text">
-                  {name}
-                </div>
+                <div className="quizplease__item-text">{name}</div>
               </div>
             );
           })}

@@ -5,25 +5,23 @@ import AnswerContext, {
 
 import { useContext } from "react";
 import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
-import "./QuizPlease.css";
 import quizplease from "data/quizplease";
+import { TNavParams } from "./Functions";
 
 function QuizPleaseHello() {
   const navigate = useNavigate();
-  const { slug: quizname } = useParams();
+  const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
+  const text_before = quizplease[quizname].text_before;
+
   return (
     <>
       <div className="container m-auto">
         <div className="quizplease__hello">
           <div className="basis-3/4">
-            <h1 className="quizplease__hello-title h1">ЛИНИЯ ЛЮБВИ</h1>
+            <h1 className="quizplease__hello-title h1">{quizplease[quizname].name}</h1>
             <div className="quizplease__hello-rectangle">
               <div className="quizplease__hello-description-one">
-                Пройдите тест и узнайте, любовная линия какого знаменитого
-                литературного произведения подходит именно вам!
-              </div>
-              <div className="quizplease__hello-description-two">
-                Откройте флакон с ароматом и помните: Любовь витает в воздухе!
+                {text_before}
               </div>
               <button
                 onClick={(e) => {

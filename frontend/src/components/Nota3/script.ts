@@ -1,5 +1,9 @@
 import { AlphaTabApi, LayoutMode, synth } from "@coderline/alphatab";
 
+interface HTMLElementTrack extends HTMLElement {
+  track: any;
+}
+
 export function alphatab() {
   const wrapper = document.querySelector(".at-wrap");
   const main = wrapper && wrapper.querySelector<HTMLElement>(".at-main");
@@ -40,19 +44,15 @@ export function alphatab() {
 
     const tmp = document.querySelector<HTMLMetaElement>("#at-track-template");
     const clone = tmp?.cloneNode(true);
-    const trackItem = clone?.firstChild as HTMLElement;
+    const trackItem = clone?.firstChild as HTMLElementTrack;
     if (!trackItem) throw "exception !trackItem";
     const trackName = trackItem.querySelector<HTMLElement>(".at-track-name");
     if (!trackName) throw "exception !trackItem";
 
     trackName.innerText = track.name;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     trackItem.track = track;
     trackItem.onclick = (e: { stopPropagation: () => void }) => {
       e.stopPropagation();
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       api.renderTracks([track]);
     };
     return trackItem;
@@ -76,10 +76,8 @@ export function alphatab() {
       tracks.set(t.index, t);
     });
     // mark the item as active or not
-    const trackItems = trackList.querySelectorAll(".at-track");
+    const trackItems = trackList.querySelectorAll<HTMLElementTrack>(".at-track");
     trackItems?.forEach((trackItem) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       if (tracks.has(trackItem.track.index)) {
         trackItem.classList.add("active");
       } else {
@@ -136,26 +134,20 @@ export function alphatab() {
     api.print();
   };
 
-  const zoom = wrapper.querySelector<HTMLElement>(
+  const zoom = wrapper.querySelector<HTMLInputElement>(
     ".at-controls .at-zoom select"
   );
   if (!zoom) throw "exception !zoom";
   zoom.addEventListener("change", () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-
     const zoomLevel = parseInt(zoom.value) / 100;
     api.settings.display.scale = zoomLevel;
     api.updateSettings();
     api.render();
   });
 
-  const layout = wrapper.querySelector(".at-controls .at-layout select");
+  const layout = wrapper.querySelector<HTMLInputElement>(".at-controls .at-layout select");
   if (!layout) throw "exception !layout";
   layout.addEventListener("change", () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-
     switch (layout.value) {
       case "horizontal":
         api.settings.display.layoutMode = LayoutMode.Horizontal;
@@ -192,20 +184,15 @@ export function alphatab() {
   );
   if (!playPause) throw "exception !playPause";
   playPause.onclick = (e) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-
-    if (e.currentTarget.classList.contains("disabled")) {
+    const target = e.currentTarget as Element;
+    if (target.classList.contains("disabled")) {
       return;
     }
     api.playPause();
   };
   if (!stop) throw "exception !stop";
   stop.onclick = (e) => {
-    const target = e.currentTarget;
-    if (!target) return;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    const target = e.currentTarget as Element;
     if (target.classList.contains("disabled")) {
       return;
     }
