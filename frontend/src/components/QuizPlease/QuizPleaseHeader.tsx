@@ -3,7 +3,7 @@ import AnswerContext, {
   useAnswersDispatch,
 } from 'contexts/AnswerContext/AnswerContext';
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { TNavParams } from './Functions';
 import quizplease from 'data/quizplease';
@@ -14,6 +14,12 @@ function QuizPleaseHeader() {
   const navigate = useNavigate();
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const _id = Number(id);
+  useEffect(() => {
+    if (_id === 0) {
+      dispatch && dispatch({ action: 'reset' });
+    }
+    // console.log(answers);
+  }, []);
   return (
     <>
       <div className='quizplease__head'>
@@ -35,7 +41,8 @@ function QuizPleaseHeader() {
               </div>
               <div className='quizplease__head-item'>
                 <div className='quizplease__stat'>
-                  Ответов: {id ? id : quizplease[quizname].questions.length}/{quizplease[quizname].questions.length}
+                  Ответов: {id ? id : quizplease[quizname].questions.length}/
+                  {quizplease[quizname].questions.length}
                 </div>
               </div>
             </div>

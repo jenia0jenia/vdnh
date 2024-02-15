@@ -30,10 +30,10 @@ export const BooksPerMinute: Highcharts.Options = {
         try {
           series.addPoint([time, bookPerMinute], true, true, true);
         } catch (e) {
-          console.log("new point adding error");
+          console.error("new point adding error");
           // console.log(e);
         }
-        console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
+        // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
 
         setInterval(async () => {
           const bookPerMinute = await apiRequest("/books/speed") || null;
@@ -41,7 +41,7 @@ export const BooksPerMinute: Highcharts.Options = {
           try {
             series.addPoint([time, bookPerMinute], true, true, true);
           } catch (e) {
-            console.log("new point adding error");
+            console.error("new point adding error");
             // console.log(e);
           }
         }, TIMER * 1000);

@@ -27,7 +27,7 @@ function Top(props: ITopProps | undefined) {
   useEffect(() => {
     const bookContainer: HTMLElement | null =
       document.getElementById("bookContainer");
-    console.log(bookContainer);
+    // console.log(bookContainer);
 
     apiRequest(
       "/rating/get?",
@@ -37,7 +37,7 @@ function Top(props: ITopProps | undefined) {
         dateTo: props?.dateFrom || getValidDate(today),
       }
     )?.then((data: IBook[]) => {
-      console.log(data);
+      // console.log(data);
       setTopBooks(data);
     });
   }, []);
