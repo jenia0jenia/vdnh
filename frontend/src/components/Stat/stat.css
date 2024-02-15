@@ -1,0 +1,41 @@
+.Stat {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.my-button {
+  background-color: rgb(132, 164, 224);
+  font-weight: bold;
+  color: #fff;
+  font-size: 14px;
+
+  transition: 0.2s;
+  border: 1px solid rgb(93, 96, 252);
+  position: relative;
+width: 250px;
+height: 70px;
+}
+
+
+.my-button:hover {
+  background: var(--clr);
+  color: var(--clr);
+  animation: box 3s infinite;
+  box-shadow: 1px 1px 25px 10px rgba(1, 5, 255, 0.4);
+}
+
+@keyframes box {
+  50% {
+    box-shadow: 0 0 25px var(--clr);
+  }
+}
+
+@media screen and (max-width: 944px) {
+  .Stat{
+    justify-content: center;
+  }
+}
