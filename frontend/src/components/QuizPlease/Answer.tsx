@@ -13,17 +13,34 @@ function Answer() {
   const navigate = useNavigate();
   const _id = Number(id);
   const question = quizplease[quizname].questions[_id];
+  console.log(quizplease[quizname].questions);
+
   return (
     <>
       <Confetti></Confetti>
       {/* <h1 className="text-3xl mb-4">{question.title}</h1> */}
-      <h2 className='text-lg'>Это правильный ответ =)</h2>
+      {/* <h2 className='text-lg'>Это правильный ответ =)</h2> */}
       <div className='answer'>
         <div className='max-w-screen-md m-auto p-8'>
-          <div
-            className='text-card text-card--violet'
-            dangerouslySetInnerHTML={{ __html: question.text_answer || '' }}
-          ></div>
+          {question.images_answer && (
+            <div className='answer__image-list'>
+              {question.images_answer.map((image) => {
+                return (
+                  <>
+                    <div className='answer__image'>
+                      <img src={`/q/${image}`} alt='' />
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          )}
+          {question.text_answer && (
+            <div
+              className='text-card text-card--violet'
+              dangerouslySetInnerHTML={{ __html: question.text_answer || '' }}
+            ></div>
+          )}
           <button
             className='answer__back-button'
             onClick={(e) => {
@@ -34,7 +51,9 @@ function Answer() {
               }
             }}
           >
-            {quizplease[quizname].questions.length - 1 <= _id ? `Завершить!` : `Следующий вопрос`}
+            {quizplease[quizname].questions.length - 1 === _id
+              ? `Завершить!`
+              : `Следующий вопрос`}
           </button>
         </div>
       </div>

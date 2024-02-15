@@ -1,4 +1,4 @@
-import quizplease from "data/quizplease";
+import quizplease from 'data/quizplease';
 import {
   Dispatch,
   ReactElement,
@@ -7,7 +7,7 @@ import {
   createContext,
   useContext,
   useReducer,
-} from "react";
+} from 'react';
 
 const AnswerContext = createContext<{ answers: TDispatchAnswerObj }>({
   answers: answersInit(),
@@ -16,6 +16,7 @@ const AnswerContext = createContext<{ answers: TDispatchAnswerObj }>({
 export type TDispatchAnswerObj = {
   [quizname: string]: {
     [answerId: string]: number;
+    scores: number;
   };
 };
 
@@ -23,11 +24,13 @@ export interface IAnswer {
   quizplease: string;
   answerId: string;
   answerValue: number;
+  scores?: number;
 }
 
 export interface IDispatchAnswer {
-  action: "answer" | "reset";
+  action: 'answer' | 'reset';
   answer?: IAnswer;
+  scores?: number;
 }
 
 const AnswerDispacthContext =
@@ -53,20 +56,24 @@ function answersReducer(
   answers: TDispatchAnswerObj,
   newAnswer: IDispatchAnswer
 ) {
-  if (newAnswer.action === "reset") {
+  if (newAnswer.action === 'reset') {
     return answersInit();
   }
 
-  if (newAnswer.action === "answer") {
+  if (newAnswer.action === 'answer') {
     const result: TDispatchAnswerObj = { ...answers };
-    if (typeof newAnswer.answer !== "undefined") {
-      if (!result[newAnswer.answer.quizplease])
-        result[newAnswer.answer.quizplease] = {};
-      result[newAnswer.answer.quizplease][`${newAnswer.answer.answerId}`] =
+    if (typeof newAnswer.answer !== 'undefined') {
+      const quizname = newAnswer.answer.quizplease;
+
+      if (quizname && !result[quizname])
+        result[quizname] = {
+          scores: 0,
+        };
+      result[quizname][`${newAnswer.answer.answerId}`] =
         newAnswer.answer.answerValue;
       return result;
     } else {
-      console.log("no new answer");
+      console.error('no new answer');
     }
   }
 

@@ -40,7 +40,6 @@ function Map(props: { property: mapProp; title: string }) {
 
   useEffect(() => {
     apiRequest("/operational/get")?.then((data: IOperationalData[]) => {
-      console.log(data);
       data = data.map((lib) => {
         return {
           ...lib,

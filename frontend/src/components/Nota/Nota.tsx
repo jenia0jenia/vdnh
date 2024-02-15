@@ -61,7 +61,7 @@ function Nota() {
           setLoading(false);
         })
         .catch(function (error) {
-          console.log(error);
+          console.error(error);
 
           // Unable to load the score
         });
