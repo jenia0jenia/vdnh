@@ -16,11 +16,11 @@
   transition: 0.2s;
   border: 1px solid rgb(93, 96, 252);
   position: relative;
-width: 250px;
-height: 70px;
+  width: 250px;
+  height: 70px;
 }
 
-
+.my-button.active,
 .my-button:hover {
   background: var(--clr);
   color: var(--clr);
@@ -35,7 +35,7 @@ height: 70px;
 }
 
 @media screen and (max-width: 944px) {
-  .Stat{
+  .Stat {
     justify-content: center;
   }
 }

@@ -27,3 +27,9 @@ export function shuffle(array: any[]) {
 
   return array;
 }
+
+export async function getQuizFromJson() {
+  const response = await fetch('/quiz/data.json');
+  const data = await response.json();
+  return data;
+}

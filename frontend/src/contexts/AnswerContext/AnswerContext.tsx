@@ -1,4 +1,4 @@
-import quizplease from 'data/quizplease';
+// import quizplease from 'data/quizplease';
 import {
   Dispatch,
   ReactElement,

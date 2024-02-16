@@ -1,60 +1,68 @@
-import Map from "../Map/Map";
-import Top from "../Top/Top";
-import PerMinute from "../PerMinute/PerMinute";
-import { getValidDate } from "utils";
-import "./stat.css";
+import Map from '../Map/Map';
+import Top from '../Top/Top';
+import PerMinute from '../PerMinute/PerMinute';
+import { getValidDate } from 'utils';
+import './stat.css';
+import { useState } from 'react';
 
 function App() {
   const today = new Date();
   const dateFrom = getValidDate(today);
   const dateTo = getValidDate(today);
-
-  let activeElement: HTMLElement | null = null;
-
-  const toggleAndHide = (className: string) => {
-    const element = document.querySelector(className);
-    if (element) {
-      if (activeElement) {
-        activeElement.classList.add('hidden');
-      }
-      element.classList.remove('hidden');
-      activeElement = element as HTMLElement;
-    }
-  };
+  const [currentStat, setCurrentStat] = useState<number>(0);
 
   return (
     <>
-      <div className="Stat">
-        <button className="my-button" onClick={() => toggleAndHide('.del')}>
+      <div className='Stat'>
+        <button
+          className={'my-button' + (currentStat === 0 ? ' active' : '')}
+          onClick={() => setCurrentStat(0)}
+        >
           Количество книговыдач сегодня
         </button>
-        <button className="my-button" onClick={() => toggleAndHide('.del1')}>
+        <button
+          className={'my-button' + (currentStat === 1 ? ' active' : '')}
+          onClick={() => setCurrentStat(1)}
+        >
           Зарегистрированных читателей сегодня
         </button>
-        <button className="my-button" onClick={() => toggleAndHide('.del2')}>
-        Объём фонда 
+        <button
+          className={'my-button' + (currentStat === 2 ? ' active' : '')}
+          onClick={() => setCurrentStat(2)}
+        >
+          Объём фонда
         </button>
-        <button className="my-button" onClick={() => toggleAndHide('.del3')}>
+        <button
+          className={'my-button' + (currentStat === 3 ? ' active' : '')}
+          onClick={() => setCurrentStat(3)}
+        >
           Книги по количеству выдач
         </button>
-        <button className="my-button" onClick={() => toggleAndHide('.del4')}>
+        <button
+          className={'my-button' + (currentStat === 4 ? ' active' : '')}
+          onClick={() => setCurrentStat(4)}
+        >
           Книговыдача в минуту
         </button>
       </div>
       <div>
-        <div className="hidden del">
-          <Map property="kv" title="Количество книговыдач сегодня" />
+        <div>
+          {currentStat === 0 && (
+            <Map property='kv' title='Количество книговыдач сегодня' />
+          )}
         </div>
-        <div className="hidden del1">
-          <Map property="newR" title="Зарегистрированных читателей сегодня" />
+        <div>
+          {currentStat === 1 && (
+            <Map property='newR' title='Зарегистрированных читателей сегодня' />
+          )}
         </div>
-        <div className="hidden del2">
-          <Map property="nekz" title="Объём фонда" />
+        <div>
+          {currentStat === 2 && <Map property='nekz' title='Объём фонда' />}
         </div>
-        <div className="hidden del3">
+        <div className={'del3' + (currentStat !== 3 ? ' hidden' : '')}>
           <Top dateFrom={dateFrom} dateTo={dateTo} />
         </div>
-        <div className="hidden del4">
+        <div className={'del4' + (currentStat !== 4 ? ' hidden' : '')}>
           <PerMinute />
         </div>
       </div>

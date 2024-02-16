@@ -3,10 +3,12 @@ import AnswerContext, {
   useAnswersDispatch,
 } from 'contexts/AnswerContext/AnswerContext';
 
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { TNavParams } from './Functions';
-import quizplease from 'data/quizplease';
+import { getQuizFromJson } from 'utils';
+import { TQuizPleaseQuestion } from 'types/quizplease';
+// import quizplease from 'data/quizplease';
 
 function QuizPleaseHeader() {
   const { answers } = useAnswers();
@@ -14,11 +16,17 @@ function QuizPleaseHeader() {
   const navigate = useNavigate();
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const _id = Number(id);
+  const [question, setQuestion] = useState<TQuizPleaseQuestion>();
+  const [quizplease, setQuizplease] = useState<any>();
   useEffect(() => {
     if (_id === 0) {
       dispatch && dispatch({ action: 'reset' });
     }
-    // console.log(answers);
+    (async () => {
+      const quizplease = await getQuizFromJson();
+      setQuizplease(quizplease);
+      setQuestion(quizplease[quizname].questions[_id]);
+    })();
   }, []);
   return (
     <>
@@ -40,10 +48,12 @@ function QuizPleaseHeader() {
                 </div>
               </div>
               <div className='quizplease__head-item'>
-                <div className='quizplease__stat'>
-                  Ответов: {id ? id : quizplease[quizname].questions.length}/
-                  {quizplease[quizname].questions.length}
-                </div>
+                {quizplease && (
+                  <div className='quizplease__stat'>
+                    Ответов: {id ? id : quizplease[quizname].questions.length}/
+                    {quizplease[quizname].questions.length}
+                  </div>
+                )}
               </div>
             </div>
             <div className='quizplease__head-right'>

@@ -73,9 +73,6 @@ function Nota(...props: any[]) {
   function onResize(this: Window, ev: UIEvent): any {
     const notes = document.getElementById("notes");
     const logo = document.getElementById("logo");
-    // console.log(document.body.clientHeight);
-    // console.log(logo?.offsetHeight);
-    // console.log(window.innerHeight);
 
     if (notes && logo) {
       notes.style.height =

@@ -1,57 +1,4 @@
-export type TQuizPleaseOption = {
-  id?: number;
-  correct?: boolean;
-  value?: number;
-  image?: string;
-  text?: string;
-  pair?: string;
-};
-
-// export type TQuizPleaseOptionCompare = {
-
-// };
-
-export type TQuestionType = 'match' | 'simple';
-
-export type TQuizPleaseQuestion = {
-  _id: number;
-  title?: string;
-  options: TQuizPleaseOption[];
-  text: string;
-  subtext?: string;
-  images_answer?: string[];
-  text_answer?: string;
-  order?: number;
-  type: string;
-  images?: string[];
-  need_pairs?: number;
-};
-
-export type TQuizPleaseResult = {
-  title: string;
-  subtitle?: string;
-  text: string;
-  image?: string;
-  maxvalue: number;
-  minvalue: number;
-};
-
-export type TQuizPleaseType = 'test' | 'step-by-step';
-
-export type TQuizPlease = {
-  [key: string]: {
-    _id: number;
-    slug: string;
-    name: string;
-    questions: TQuizPleaseQuestion[];
-    type: TQuizPleaseType;
-    color?: string;
-    text_before?: string;
-    text_after?: string;
-    order?: number;
-    result?: TQuizPleaseResult[];
-  };
-};
+import { TQuizPlease } from 'types/quizplease';
 
 const quizplease: TQuizPlease = {
   classic: {
@@ -60,6 +7,7 @@ const quizplease: TQuizPlease = {
     name: 'Тест по классике',
     slug: 'classic',
     type: 'step-by-step',
+    background_image: '',
     color: 'rgba(43, 113, 140, 0.7)',
     questions: [
       {
@@ -913,6 +861,7 @@ const quizplease: TQuizPlease = {
     slug: 'love',
     name: 'линия любви',
     type: 'test',
+    background_image: 'love.png',
     color: 'rgba(86, 70, 105, 0.7)',
     questions: [
       {

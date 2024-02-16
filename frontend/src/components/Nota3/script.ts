@@ -15,7 +15,7 @@ export function alphatab(file: string) {
 
   // initialize alphatab
   const settings = {
-    file: `/xml/${file}`,
+    file: `${file}`,
     fontDirectory: '/font/',
     player: {
       enablePlayer: true,
@@ -141,6 +141,7 @@ export function alphatab(file: string) {
   const zoom = wrapper.querySelector<HTMLInputElement>(
     '.at-controls .at-zoom select'
   );
+
   if (!zoom) throw 'exception !zoom';
   zoom.addEventListener('change', () => {
     const zoomLevel = parseInt(zoom.value) / 100;

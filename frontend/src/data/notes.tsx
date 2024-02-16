@@ -40,14 +40,15 @@ const notes = [
     volume: 100,
     speed: 1,
   },
-  {
-    id: 6,
-    source: 'n0002318.xml',
-    name: 'Жан Сибелиус. Баркарола',
-    image: 'n0002318.jpg',
-    volume: 100,
-    speed: 1,
-  },
+  // выдаёт ошибку
+  // {
+  //   id: 6,
+  //   source: 'n0002318.xml',
+  //   name: 'Жан Сибелиус. Баркарола',
+  //   image: 'n0002318.jpg',
+  //   volume: 100,
+  //   speed: 1,
+  // },
   {
     id: 7,
     source: 'n0001119.mvt1.xml',
@@ -62,14 +63,14 @@ const notes = [
     image: 'n0002384.jpg',
     speed: 1,
   },
-  {
-    id: 9,
-    source: 'n0001646.xml',
-    name: 'Слеза мой взор туманит',
-    image: 'n0001646.jpg',
-    volume: 100,
-    speed: 1,
-  },
+  // {
+  //   id: 9,
+  //   source: 'n0001646.xml',
+  //   name: 'Слеза мой взор туманит',
+  //   image: 'n0001646.jpg',
+  //   volume: 100,
+  //   speed: 1,
+  // },
   {
     id: 10,
     source: 'n0002382.mvt5.xml',

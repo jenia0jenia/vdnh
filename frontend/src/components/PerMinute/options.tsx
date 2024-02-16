@@ -31,9 +31,7 @@ export const BooksPerMinute: Highcharts.Options = {
           series.addPoint([time, bookPerMinute], true, true, true);
         } catch (e) {
           console.error("new point adding error");
-          // console.log(e);
         }
-        // console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
 
         setInterval(async () => {
           const bookPerMinute = await apiRequest("/books/speed") || null;
@@ -42,7 +40,6 @@ export const BooksPerMinute: Highcharts.Options = {
             series.addPoint([time, bookPerMinute], true, true, true);
           } catch (e) {
             console.error("new point adding error");
-            // console.log(e);
           }
         }, TIMER * 1000);
       },
@@ -56,8 +53,6 @@ export const BooksPerMinute: Highcharts.Options = {
       enabled: true,
       minAnnounceInterval: TIMER * 1000,
       announcementFormatter: function (allSeries, newSeries, newPoint) {
-        console.log("announcementFormatter");
-
         if (newPoint) {
           return "New point added. Value: " + newPoint.y;
         }
