@@ -79,6 +79,22 @@ const notes = [
     speed: 0.9,
     volume: 80,
   },
+  {
+    id: 11,
+    source: 'katysha.xml',
+    name: 'Катюша',
+    image: '',
+    speed: 0.9,
+    volume: 80,
+  },
+  {
+    id: 4,
+    source: 'n0002289.mvt2.xml',
+    name: 'И. С. Бах',
+    image: 'm1.png',
+    volume: 50,
+    speed: 0.7,
+  },
 ];
 
 export default notes;

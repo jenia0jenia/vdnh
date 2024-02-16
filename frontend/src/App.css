@@ -88,8 +88,11 @@ code {
   width: 200px;
 }
 .note__noimage {
-  padding: 24px;
-  background-color: aliceblue;
+  padding: 48px 24px;
+  background-color: var(--color-primary);
+  font-size: 18px;
+  color: white;
+
 }
 .se-extra-controls {
   background-color: var(--color-white) !important;
@@ -205,6 +208,8 @@ code {
   width: 20%;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 0;
 }
 
 .nota-page__wrapper {
