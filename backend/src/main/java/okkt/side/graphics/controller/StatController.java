@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost"})
+@CrossOrigin
 public class StatController {
 
     private final StatService statService;

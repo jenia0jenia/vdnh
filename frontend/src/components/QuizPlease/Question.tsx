@@ -45,6 +45,9 @@ function Question() {
         navigate(`/quizplease/${quizname}/result`);
       } else {
         navigate(`/quizplease/${quizname}/${_id + 1}`);
+        setQuestion(
+          quizplease[quizname].questions[_id + 1]
+        );
       }
     }
   }, [selected]);
@@ -135,7 +138,10 @@ function Question() {
                               disabled={selected.includes(i) ? true : false}
                               onClick={(e) => {
                                 if (typeof selectPair === 'number') {
-                                  if (options[selectPair].text === pair || options[selectPair].pair === text) {
+                                  if (
+                                    options[selectPair].text === pair ||
+                                    options[selectPair].pair === text
+                                  ) {
                                     setSelected((current) => {
                                       return [...current, i, selectPair];
                                     });
@@ -252,6 +258,9 @@ function Question() {
                               navigate(`/quizplease/${quizname}/result`);
                             } else {
                               navigate(`/quizplease/${quizname}/${_id + 1}`);
+                              setQuestion(
+                                quizplease[quizname].questions[_id + 1]
+                              );
                             }
                           } else if (
                             typeof question.options[currentOption].value !==
@@ -266,6 +275,9 @@ function Question() {
                               navigate(`/quizplease/${quizname}/result`);
                             } else {
                               navigate(`/quizplease/${quizname}/${_id + 1}`);
+                              setQuestion(
+                                quizplease[quizname].questions[_id + 1]
+                              );
                             }
                           } else {
                             setUncorrectOptions((current) => {
