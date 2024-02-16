@@ -26,7 +26,7 @@ function QuizPleaseResult() {
     <>
       <div className='container m-auto'>
         <div className='quizplease__result'>
-          <div className='basis-3/4'>
+          <div className='basis-3/4 mb-10'>
             <Confetti></Confetti>
             {quizplease[quizname].type !== 'test' && (
               <>
@@ -53,20 +53,20 @@ function QuizPleaseResult() {
               <>
                 <div>
                   <div className='container m-auto'>
-                    <div className='quizplease__hello'>
+                    <div className='quizplease__info'>
                       <div className='basis-3/4'>
-                        <h1 className='quizplease__hello-title h1'>
+                        <h1 className='quizplease__info-title h1'>
                           {result.title}
                         </h1>
-                        <div className='quizplease__hello-rectangle'>
+                        <div className='quizplease__info-rectangle'>
                           {result.subtitle && (
-                            <div className='quizplease__hello-description-one'>
+                            <div className='quizplease__info-description-one'>
                               {result.subtitle}
                             </div>
                           )}
                           {result.text && (
                             <div
-                              className='quizplease__hello-description-two'
+                              className='quizplease__info-description-two'
                               dangerouslySetInnerHTML={{
                                 __html: result.text || '',
                               }}
@@ -76,13 +76,13 @@ function QuizPleaseResult() {
                             onClick={(e) => {
                               navigate(`/quizplease/${quizname}/0`);
                             }}
-                            className='quizplease__hello-start'
+                            className='quizplease__info-start'
                           >
                             <span>Пройти ещё раз</span>
                           </button>
                         </div>
                       </div>
-                      <div className='quizplease__hello-image'>
+                      <div className='quizplease__info-image'>
                         {result.image ? (
                           <img src={`/q/${result.image}`} alt='' />
                         ) : (

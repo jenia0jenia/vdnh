@@ -17,7 +17,7 @@ function QuizPleaseTypeStepByStep() {
   return (
     <>
       <QuizPleaseHeader></QuizPleaseHeader>
-      <div className={`quizplease__main p-8 quizname-${quizname}`}>
+      <div className={`quizplease__main quizname-${quizname}`}>
         <div className='container m-auto relative'>
           <Outlet></Outlet>
         </div>

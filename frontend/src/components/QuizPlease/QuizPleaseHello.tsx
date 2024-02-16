@@ -16,27 +16,27 @@ function QuizPleaseHello() {
   return (
     <>
       <div className='container m-auto'>
-        <div className='quizplease__hello'>
-          <div className='quizplease__hello-left'>
-            <h1 className='quizplease__hello-title h1'>
+        <div className='quizplease__info'>
+          <div className='quizplease__info-left'>
+            <h1 className='quizplease__info-title h1'>
               {quizplease[quizname].name}
             </h1>
-            <div className='quizplease__hello-rectangle'>
-              <div className='quizplease__hello-description-one'>
+            <div className='quizplease__info-rectangle'>
+              <div className='quizplease__info-description-one'>
                 {text_before}
               </div>
               <button
                 onClick={(e) => {
                   navigate(`/quizplease/${quizname}/0`);
                 }}
-                className='quizplease__hello-start'
+                className='quizplease__info-start'
               >
                 <span>Начать тест</span>
               </button>
             </div>
           </div>
-          <div className='quizplease__hello-right'>
-            <div className='quizplease__hello-image'>
+          <div className='quizplease__info-right'>
+            <div className='quizplease__info-image'>
               <img src='/images/stella_green.svg' alt='' />
             </div>
           </div>

@@ -53,7 +53,7 @@ function Question() {
         <div className='grid grid-cols-12'>
           <div className='lg:col-span-2'></div>
           <div className='col-span-12 lg:col-span-8'>
-            <div className='m-auto p-8'>
+            <div className='question__inner'>
               {question.images && (
                 <div className='question__image-list'>
                   {question.images.map((image, i) => {

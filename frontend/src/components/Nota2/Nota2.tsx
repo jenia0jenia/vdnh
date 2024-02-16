@@ -8,7 +8,7 @@ function Nota(...props: any[]) {
   const [title, setTitle] = useState(notes[0].name);
 
   useEffect(function () {
-    loadNote(notes[0]);
+    // loadNote(notes[0]);
   }, []);
 
   window.addEventListener("resize", onResize);
@@ -107,7 +107,7 @@ function Nota(...props: any[]) {
                         el.classList.remove("is-active");
                       });
                       e.currentTarget.classList.add("is-active");
-                      loadNote(note);
+                      // loadNote(note);
                     }}
                     key={i}
                   >

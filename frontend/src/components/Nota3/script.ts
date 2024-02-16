@@ -1,53 +1,56 @@
-import { AlphaTabApi, LayoutMode, synth } from "@coderline/alphatab";
+import { AlphaTabApi, LayoutMode, synth } from '@coderline/alphatab';
 
 interface HTMLElementTrack extends HTMLElement {
   track: any;
 }
 
-export function alphatab() {
-  const wrapper = document.querySelector(".at-wrap");
-  const main = wrapper && wrapper.querySelector<HTMLElement>(".at-main");
+export function alphatab(file: string) {
+  const wrapper = document.querySelector('.at-wrap');
+  const main = wrapper && wrapper.querySelector<HTMLElement>('.at-main');
 
-  if (!wrapper || !main) throw "exception !wrapper || !main";
+  if (!wrapper || !main) throw 'exception !wrapper || !main';
+  console.log(file);
+
+  if (!file) throw 'exception !file';
 
   // initialize alphatab
   const settings = {
-    file: "/xml/n0001119.mvt1.xml",
-    fontDirectory: "/font/",
+    file: `/xml/${file}`,
+    fontDirectory: '/font/',
     player: {
       enablePlayer: true,
       // soundFont: "/soundfont/sonivox.sf2",
       // soundFont: "/soundfont/wt_22khz.sf2",
-      soundFont: "/soundfont/GeneralUser_GS.sf2",
-      scrollElement: wrapper.querySelector(".at-viewport"),
+      soundFont: '/soundfont/GeneralUser_GS.sf2',
+      scrollElement: wrapper.querySelector('.at-viewport'),
     },
   };
   const api = new AlphaTabApi(main, settings);
 
-  if (!api) throw "exception !api";
+  if (!api) throw 'exception !api';
 
   // overlay logic
-  const overlay = wrapper.querySelector<HTMLElement>(".at-overlay");
+  const overlay = wrapper.querySelector<HTMLElement>('.at-overlay');
 
-  if (!overlay) throw "exception !overlay";
+  if (!overlay) throw 'exception !overlay';
 
   api.renderStarted.on(() => {
-    overlay.style.display = "flex";
+    overlay.style.display = 'flex';
   });
   api.renderFinished.on(() => {
-    overlay.style.display = "none";
+    overlay.style.display = 'none';
   });
 
   // track selector
   function createTrackItem(track: any) {
-    if (!document) throw "exception !document";
+    if (!document) throw 'exception !document';
 
-    const tmp = document.querySelector<HTMLMetaElement>("#at-track-template");
+    const tmp = document.querySelector<HTMLMetaElement>('#at-track-template');
     const clone = tmp?.cloneNode(true);
     const trackItem = clone?.firstChild as HTMLElementTrack;
-    if (!trackItem) throw "exception !trackItem";
-    const trackName = trackItem.querySelector<HTMLElement>(".at-track-name");
-    if (!trackName) throw "exception !trackItem";
+    if (!trackItem) throw 'exception !trackItem';
+    const trackName = trackItem.querySelector<HTMLElement>('.at-track-name');
+    if (!trackName) throw 'exception !trackItem';
 
     trackName.innerText = track.name;
     trackItem.track = track;
@@ -58,12 +61,12 @@ export function alphatab() {
     return trackItem;
   }
 
-  const trackList = wrapper.querySelector(".at-track-list");
-  if (!trackList) throw "exception trackList";
+  const trackList = wrapper.querySelector('.at-track-list');
+  if (!trackList) throw 'exception trackList';
 
   api.scoreLoaded.on((score: { tracks: any[] }) => {
     // clear items
-    trackList.innerHTML = "";
+    trackList.innerHTML = '';
     // generate a track item for all tracks of the score
     score.tracks.forEach((track: any) => {
       trackList.appendChild(createTrackItem(track));
@@ -76,32 +79,33 @@ export function alphatab() {
       tracks.set(t.index, t);
     });
     // mark the item as active or not
-    const trackItems = trackList.querySelectorAll<HTMLElementTrack>(".at-track");
+    const trackItems =
+      trackList.querySelectorAll<HTMLElementTrack>('.at-track');
     trackItems?.forEach((trackItem) => {
       if (tracks.has(trackItem.track.index)) {
-        trackItem.classList.add("active");
+        trackItem.classList.add('active');
       } else {
-        trackItem.classList.remove("active");
+        trackItem.classList.remove('active');
       }
     });
   });
 
   /** Controls **/
   api.scoreLoaded.on((score: { title: any; artist: any }) => {
-    const title = wrapper.querySelector<HTMLElement>(".at-song-title");
+    const title = wrapper.querySelector<HTMLElement>('.at-song-title');
     if (title) title.innerText = score.title;
 
-    const artist = wrapper.querySelector<HTMLElement>(".at-song-artist");
+    const artist = wrapper.querySelector<HTMLElement>('.at-song-artist');
     if (artist) artist.innerText = score.artist;
   });
 
   const countIn = wrapper.querySelector<HTMLElement>(
-    ".at-controls .at-count-in"
+    '.at-controls .at-count-in'
   );
-  if (!countIn) throw "exception !countIn";
+  if (!countIn) throw 'exception !countIn';
   countIn.onclick = () => {
-    countIn.classList.toggle("active");
-    if (countIn.classList.contains("active")) {
+    countIn.classList.toggle('active');
+    if (countIn.classList.contains('active')) {
       api.countInVolume = 1;
     } else {
       api.countInVolume = 0;
@@ -109,50 +113,52 @@ export function alphatab() {
   };
 
   const metronome = wrapper.querySelector<HTMLElement>(
-    ".at-controls .at-metronome"
+    '.at-controls .at-metronome'
   );
-  if (!metronome) throw "exception !metronome";
+  if (!metronome) throw 'exception !metronome';
   metronome.onclick = () => {
-    metronome.classList.toggle("active");
-    if (metronome.classList.contains("active")) {
+    metronome.classList.toggle('active');
+    if (metronome.classList.contains('active')) {
       api.metronomeVolume = 1;
     } else {
       api.metronomeVolume = 0;
     }
   };
 
-  const loop = wrapper.querySelector<HTMLElement>(".at-controls .at-loop");
-  if (!loop) throw "exception !loop";
+  const loop = wrapper.querySelector<HTMLElement>('.at-controls .at-loop');
+  if (!loop) throw 'exception !loop';
   loop.onclick = () => {
-    loop.classList.toggle("active");
-    api.isLooping = loop.classList.contains("active");
+    loop.classList.toggle('active');
+    api.isLooping = loop.classList.contains('active');
   };
 
-  const print = wrapper.querySelector<HTMLElement>(".at-controls .at-print");
-  if (!print) throw "exception !print";
+  const print = wrapper.querySelector<HTMLElement>('.at-controls .at-print');
+  if (!print) throw 'exception !print';
   print.onclick = () => {
     api.print();
   };
 
   const zoom = wrapper.querySelector<HTMLInputElement>(
-    ".at-controls .at-zoom select"
+    '.at-controls .at-zoom select'
   );
-  if (!zoom) throw "exception !zoom";
-  zoom.addEventListener("change", () => {
+  if (!zoom) throw 'exception !zoom';
+  zoom.addEventListener('change', () => {
     const zoomLevel = parseInt(zoom.value) / 100;
     api.settings.display.scale = zoomLevel;
     api.updateSettings();
     api.render();
   });
 
-  const layout = wrapper.querySelector<HTMLInputElement>(".at-controls .at-layout select");
-  if (!layout) throw "exception !layout";
-  layout.addEventListener("change", () => {
+  const layout = wrapper.querySelector<HTMLInputElement>(
+    '.at-controls .at-layout select'
+  );
+  if (!layout) throw 'exception !layout';
+  layout.addEventListener('change', () => {
     switch (layout.value) {
-      case "horizontal":
+      case 'horizontal':
         api.settings.display.layoutMode = LayoutMode.Horizontal;
         break;
-      case "page":
+      case 'page':
         api.settings.display.layoutMode = LayoutMode.Page;
         break;
     }
@@ -162,45 +168,45 @@ export function alphatab() {
 
   // player loading indicator
   const playerIndicator = wrapper.querySelector<HTMLElement>(
-    ".at-controls .at-player-progress"
+    '.at-controls .at-player-progress'
   );
 
-  if (!playerIndicator) throw "exception !playerIndicator";
+  if (!playerIndicator) throw 'exception !playerIndicator';
 
   api.soundFontLoad.on((e: { loaded: number; total: number }) => {
     const percentage = Math.floor((e.loaded / e.total) * 100);
-    playerIndicator.innerText = percentage + "%";
+    playerIndicator.innerText = percentage + '%';
   });
   api.playerReady.on(() => {
-    playerIndicator.style.display = "none";
+    playerIndicator.style.display = 'none';
   });
 
   // main player controls
   const playPause = wrapper.querySelector<HTMLElement>(
-    ".at-controls .at-player-play-pause"
+    '.at-controls .at-player-play-pause'
   );
   const stop = wrapper.querySelector<HTMLElement>(
-    ".at-controls .at-player-stop"
+    '.at-controls .at-player-stop'
   );
-  if (!playPause) throw "exception !playPause";
+  if (!playPause) throw 'exception !playPause';
   playPause.onclick = (e) => {
     const target = e.currentTarget as Element;
-    if (target.classList.contains("disabled")) {
+    if (target.classList.contains('disabled')) {
       return;
     }
     api.playPause();
   };
-  if (!stop) throw "exception !stop";
+  if (!stop) throw 'exception !stop';
   stop.onclick = (e) => {
     const target = e.currentTarget as Element;
-    if (target.classList.contains("disabled")) {
+    if (target.classList.contains('disabled')) {
       return;
     }
     api.stop();
   };
   api.playerReady.on(() => {
-    playPause.classList.remove("disabled");
-    stop.classList.remove("disabled");
+    playPause.classList.remove('disabled');
+    stop.classList.remove('disabled');
   });
   api.playerStateChanged.on((e: { state: any }) => {
     if (e.state === synth.PlayerState.Playing) {
@@ -218,12 +224,12 @@ export function alphatab() {
     const minutes = (seconds / 60) | 0;
     seconds = (seconds - minutes * 60) | 0;
     return (
-      String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0")
+      String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0')
     );
   }
 
-  const songPosition = wrapper.querySelector<HTMLElement>(".at-song-position");
-  if (!songPosition) throw "exception !songPosition";
+  const songPosition = wrapper.querySelector<HTMLElement>('.at-song-position');
+  if (!songPosition) throw 'exception !songPosition';
   let previousTime = -1;
   api.playerPositionChanged.on((e: { currentTime: number; endTime: any }) => {
     // reduce number of UI updates to second changes.
@@ -233,6 +239,8 @@ export function alphatab() {
     }
 
     songPosition.innerText =
-      formatDuration(e.currentTime) + " / " + formatDuration(e.endTime);
+      formatDuration(e.currentTime) + ' / ' + formatDuration(e.endTime);
   });
+
+  return api;
 }

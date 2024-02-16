@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, ReactNode } from "react";
+import React, { useEffect, useRef, ReactNode } from 'react';
 
-import Map from "./components/Map/Map";
-import Top from "./components/Top/Top";
-import PerMinute from "./components/PerMinute/PerMinute";
+import Map from './components/Map/Map';
+import Top from './components/Top/Top';
+import PerMinute from './components/PerMinute/PerMinute';
 // import Nota from "./components/Nota/Nota";
-import AnswerContext from "./contexts/AnswerContext/AnswerContext";
+import AnswerContext from './contexts/AnswerContext/AnswerContext';
 
-import Nota2 from "./components/Nota2/Nota2";
+import Nota2 from './components/Nota2/Nota2';
 
-import "./App.css";
-import "./assets/css/fonts.css";
-import "./assets/css/fontawesome.css";
+import './App.css';
+import './assets/css/fonts.css';
+import './assets/css/fontawesome.css';
 
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import { getValidDate } from "./utils";
+import { getValidDate } from './utils';
 
 interface IProps {
   children: ReactNode;
@@ -26,8 +26,8 @@ function App({ children }: IProps) {
   const dateTo = getValidDate(today);
 
   return (
-    <div className="App">
-      { children }
+    <div className='App'>
+      {children}
     </div>
   );
 }

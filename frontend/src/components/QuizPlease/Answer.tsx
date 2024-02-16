@@ -21,7 +21,7 @@ function Answer() {
       {/* <h1 className="text-3xl mb-4">{question.title}</h1> */}
       {/* <h2 className='text-lg'>Это правильный ответ =)</h2> */}
       <div className='answer'>
-        <div className='max-w-screen-md m-auto p-8'>
+        <div className='max-w-screen-md m-auto mb-5'>
           {question.images_answer && (
             <div className='answer__image-list'>
               {question.images_answer.map((image) => {

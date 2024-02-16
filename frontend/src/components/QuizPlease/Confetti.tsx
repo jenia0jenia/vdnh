@@ -15,6 +15,18 @@ function Confetti() {
         <div className="confetti-piece"></div>
         <div className="confetti-piece"></div>
         <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
+        <div className="confetti-piece"></div>
       </div>
     </>
   );
