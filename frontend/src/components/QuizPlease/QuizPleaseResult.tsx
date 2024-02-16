@@ -105,7 +105,7 @@ function QuizPleaseResult() {
                               }}
                               className='quizplease__info-start'
                             >
-                              <span>Пройти ещё раз</span>
+                              Пройти ещё раз
                             </button>
                           </div>
                         </div>

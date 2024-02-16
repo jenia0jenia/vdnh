@@ -562,6 +562,7 @@ code {
   font-weight: 500;
   text-transform: uppercase;
   color: var(--color-white);
+  font-size: 16px;
 }
 .quizplease__head-left {
 }
