@@ -1,4 +1,4 @@
-import AnswerContext from 'contexts/AnswerContext/AnswerContext';
+import QuizPleaseContext, { useQuizPlease } from 'contexts/QuizPleaseContext/QuizPleaseContext';
 
 import { useContext, useEffect, useState } from 'react';
 // import quizplease from 'data/quizplease';
@@ -8,19 +8,15 @@ import { TQuizPleaseQuestion } from 'types/quizplease';
 import { getQuizFromJson } from 'utils';
 
 function QuestionList() {
-  const { answers } = useContext(AnswerContext);
+  const { answers } = useQuizPlease();
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const _id = Number(id);
 
   const navigate = useNavigate();
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
+  const { quizplease } = useQuizPlease();
   useEffect(() => {
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      setQuestion(quizplease[quizname].questions[_id]);
-    })();
+    setQuestion(quizplease[quizname].questions[_id]);
   }, []);
   return (
     <>

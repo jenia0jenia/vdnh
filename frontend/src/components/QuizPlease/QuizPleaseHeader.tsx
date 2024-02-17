@@ -1,32 +1,24 @@
-import AnswerContext, {
-  useAnswers,
+import {
+  useQuizPlease,
   useAnswersDispatch,
-} from 'contexts/AnswerContext/AnswerContext';
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 
-import { useContext, useEffect, useState } from 'react';
-import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { TNavParams } from './Functions';
-import { getQuizFromJson } from 'utils';
-import { TQuizPleaseQuestion } from 'types/quizplease';
 // import quizplease from 'data/quizplease';
 
 function QuizPleaseHeader() {
-  const { answers } = useAnswers();
   const dispatch = useAnswersDispatch();
   const navigate = useNavigate();
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const _id = Number(id);
-  const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
+  const { quizplease } = useQuizPlease();
+
   useEffect(() => {
     if (_id === 0) {
       dispatch && dispatch({ action: 'reset' });
     }
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      setQuestion(quizplease[quizname].questions[_id]);
-    })();
   }, []);
   return (
     <>
@@ -38,10 +30,10 @@ function QuizPleaseHeader() {
                 <div
                   className='quizplease__again'
                   onClick={(e) => {
-                    if (window.confirm('Вы уверены?')) {
                       dispatch && dispatch({ action: 'reset' });
                       navigate(`/quizplease/${quizname}/0`);
-                    }
+                    // if (window.confirm('Вы уверены?')) {
+                    // }
                   }}
                 >
                   Начать заново
@@ -61,10 +53,10 @@ function QuizPleaseHeader() {
                 <div
                   className='quizplease__home'
                   onClick={(e) => {
-                    if (window.confirm('Вы уверены?')) {
                       dispatch && dispatch({ action: 'reset' });
                       navigate('/quizplease');
-                    }
+                    // if (window.confirm('Вы уверены?')) {
+                    // }
                   }}
                 >
                   К выбору викторины

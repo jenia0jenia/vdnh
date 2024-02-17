@@ -2,9 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import quizplease from 'data/quizplease';
 import { useContext, useEffect, useState } from 'react';
 import {
-  useAnswers,
+  useQuizPlease,
   useAnswersDispatch,
-} from 'contexts/AnswerContext/AnswerContext';
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 import { TNavParams } from './Functions';
 import Confetti from './Confetti';
 import { getQuizFromJson } from 'utils';
@@ -16,13 +16,9 @@ function Answer() {
   const _id = Number(id);
 
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
+  const { quizplease } = useQuizPlease();
   useEffect(() => {
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      setQuestion(quizplease[quizname].questions[_id]);
-    })();
+    setQuestion(quizplease[quizname].questions[_id]);
   }, []);
   return (
     <>

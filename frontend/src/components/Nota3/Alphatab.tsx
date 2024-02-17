@@ -17,12 +17,19 @@ import { alphatab } from './script';
 
 function AlphaTab({ ...props }) {
   const { loading, nota } = props;
-  const { source, title } = props.nota;
+  const { source, title } = nota;
 
   let alphatabApi: AlphaTabApi;
-
+  
   useEffect(function () {
+    console.log('mount')
     alphatabApi = alphatab('/xml/' + source);
+  }, []);
+  
+  useEffect( () => () => {
+    console.log('unmount')
+    console.log(alphatabApi)
+    alphatabApi && alphatabApi.destroy();
   }, []);
 
   return (

@@ -1,7 +1,7 @@
-import AnswerContext, {
-  useAnswers,
+import QuizPleaseContext, {
+  useQuizPlease,
   useAnswersDispatch,
-} from 'contexts/AnswerContext/AnswerContext';
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 
 import { useContext } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';

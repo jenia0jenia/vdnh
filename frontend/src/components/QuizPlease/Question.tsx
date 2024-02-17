@@ -2,9 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import quizplease from 'data/quizplease';
 import { TQuizPleaseOption, TQuizPleaseQuestion } from 'types/quizplease';
 import { useEffect, useState } from 'react';
-import { useAnswersDispatch } from 'contexts/AnswerContext/AnswerContext';
+import { useAnswersDispatch, useQuizPlease } from 'contexts/QuizPleaseContext/QuizPleaseContext';
 import { TNavParams } from './Functions';
-import { getQuizFromJson, shuffle } from 'utils/index';
+import { shuffle } from 'utils/index';
 // import Timer from "./Timer";
 
 function Question() {
@@ -18,20 +18,38 @@ function Question() {
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const _id = Number(id);
   const navigate = useNavigate();
-  // const question: TQuizPleaseQuestion = quizplease[quizname].questions[_id];
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
+  const { quizplease } = useQuizPlease();
+  
+  // const { currentOption } = useQuizPlease();
+  // function setCurrentOption(number: any) {
+  //   dispatch &&
+  //     dispatch({
+  //       action: 'setCurrentOption',
+  //       currentOption: number
+  //     });
+  // }
+
   useEffect(() => {
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      setQuestion(quizplease[quizname].questions[_id]);
-      if (_id >= quizplease[quizname].questions.length) {
-        navigate(`${quizname}/result`);
-      }
-      setOptions(shuffle(quizplease[quizname].questions[_id].options));
-    })();
-  }, []);
+    if (quizplease[quizname].questions.length <= _id) {
+      navigate('/quizplease/' + (quizplease[quizname].questions.length - 1))
+    }
+    setQuestion(
+      quizplease[quizname].questions[_id]
+    );
+    setOptions(shuffle(quizplease[quizname].questions[_id].options));
+    setUncorrectOptions([])
+    setCurrentOption(-1)
+    setSelectPair(null)
+    setSelected([])
+    setScores(0)
+    console.log(currentOption);
+
+    dispatch &&
+      dispatch({
+        action: 'reset',
+      });
+  }, [id]);
 
   useEffect(() => {
     if (!selected || !selected.length || !question) return;
@@ -45,9 +63,6 @@ function Question() {
         navigate(`/quizplease/${quizname}/result`);
       } else {
         navigate(`/quizplease/${quizname}/${_id + 1}`);
-        setQuestion(
-          quizplease[quizname].questions[_id + 1]
-        );
       }
     }
   }, [selected]);

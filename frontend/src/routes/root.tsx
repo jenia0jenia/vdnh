@@ -4,21 +4,21 @@ import { NavLink } from "react-router-dom";
 export default function Root() {
   return (
     <>
-      <div className="grid grid-cols-12 p-8">
-        <div className="col-span-12 sm:col-span-12 lg:col-start-5 lg:col-span-4">
-          <nav className="menu margin-auto">
-            <ul className="grid grid-cols-12 gap-4 menu__list">
-              <li className="menu__item col-span-12 sm:col-span-12 lg:col-span-4">
+      <div className="">
+        <div className="">
+          <nav className="menu">
+            <ul className="menu__list">
+              <li className="menu__item">
                 <NavLink className="menu__link" to="/quizplease/">
                   Викторина
                 </NavLink>
               </li>
-              <li className="menu__item col-span-12 sm:col-span-12 lg:col-span-4">
+              <li className="menu__item">
                 <NavLink className="menu__link" to="/stat/">
                   Статистика
                 </NavLink>
               </li>
-              <li className="menu__item col-span-12 sm:col-span-12 lg:col-span-4">
+              <li className="menu__item">
                 <NavLink className="menu__link" to="/notes/">
                   Ноты
                 </NavLink>

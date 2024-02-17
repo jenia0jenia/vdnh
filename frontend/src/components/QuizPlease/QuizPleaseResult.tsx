@@ -1,7 +1,7 @@
-import AnswerContext, {
-  useAnswers,
+import QuizPleaseContext, {
+  useQuizPlease,
   useAnswersDispatch,
-} from 'contexts/AnswerContext/AnswerContext';
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 
 import { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
@@ -23,18 +23,14 @@ function QuizPleaseResult() {
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const _id = Number(id);
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
   const [result, setResult] = useState<TQuizPleaseResult>();
+  const { quizplease } = useQuizPlease();
 
   useEffect(() => {
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      setQuestion(quizplease[quizname].questions[_id]);
-      setResult(() => {
-        return getRandomResult(quizplease[quizname].result);
-      });
-    })();
+    setQuestion(quizplease[quizname].questions[_id]);
+    setResult(() => {
+      return getRandomResult(quizplease[quizname].result);
+    });
   }, []);
 
   useEffect(() => {

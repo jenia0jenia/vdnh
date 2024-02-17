@@ -27,7 +27,7 @@ const notes = [
   {
     id: 4,
     source: 'n0002289.mvt1.xml',
-    name: 'И. С. Бах',
+    name: 'И. С. Бах. Сюита №1 для виолончели - прелюдия',
     image: 'm1.png',
     volume: 50,
     speed: 0.7,

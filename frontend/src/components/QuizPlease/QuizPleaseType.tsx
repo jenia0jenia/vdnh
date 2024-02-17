@@ -1,4 +1,4 @@
-import AnswerContext from 'contexts/AnswerContext/AnswerContext';
+import QuizPleaseContext from 'contexts/QuizPleaseContext/QuizPleaseContext';
 
 import { useContext } from 'react';
 // import quizplease from 'data/quizplease';

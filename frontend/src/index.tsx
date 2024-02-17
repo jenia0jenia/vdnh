@@ -10,9 +10,9 @@ import Stat from './components/Stat/Stat';
 import Nota3 from './components/Nota3/Nota3';
 
 import Root from './routes/root';
-import AnswerContext, {
-  AnswerProvider,
-} from 'contexts/AnswerContext/AnswerContext';
+import QuizPleaseContext, {
+  QuizPleaseProvider,
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 import QuizPleaseTypeStepByStep from 'components/QuizPlease/QuizPleaseTypeStepByStep';
 import Question from 'components/QuizPlease/Question';
 import QuizPleaseList from 'components/QuizPlease/QuizPleaseList';
@@ -86,10 +86,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   // <React.StrictMode>
-  <AnswerProvider>
+  <QuizPleaseProvider>
     <App>
       <RouterProvider router={router} />
     </App>
-  </AnswerProvider>
+  </QuizPleaseProvider>
   // </React.StrictMode>
 );

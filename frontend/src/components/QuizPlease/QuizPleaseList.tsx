@@ -1,26 +1,10 @@
-import AnswerContext from 'contexts/AnswerContext/AnswerContext';
+import { useQuizPlease } from 'contexts/QuizPleaseContext/QuizPleaseContext';
+import { useNavigate } from 'react-router-dom';
 
-import { useContext, useEffect, useState } from 'react';
-// import quizplease from 'data/quizplease';
-import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
-import { TQuizPleaseQuestion } from 'types/quizplease';
-import { getQuizFromJson } from 'utils';
-import { TNavParams } from './Functions';
 
 function QuizPleaseList() {
   const navigate = useNavigate();
-  const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
-  const _id = Number(id);
-
-  // const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
-  useEffect(() => {
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      // setQuestion(quizplease[quizname].questions[_id]);
-    })();
-  }, []);
+  const { quizplease } = useQuizPlease();
   return (
     <>
       {quizplease && (

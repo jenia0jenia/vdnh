@@ -1,7 +1,7 @@
-import AnswerContext, {
-  useAnswers,
+import QuizPleaseContext, {
+  useQuizPlease,
   useAnswersDispatch,
-} from 'contexts/AnswerContext/AnswerContext';
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 
 import { useContext, useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
@@ -16,13 +16,9 @@ function QuizPleaseHello() {
   const _id = Number(id);
 
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
-  const [quizplease, setQuizplease] = useState<any>();
+  const { quizplease } = useQuizPlease();
   useEffect(() => {
-    (async () => {
-      const quizplease = await getQuizFromJson();
-      setQuizplease(quizplease);
-      setQuestion(quizplease[quizname].questions[_id]);
-    })();
+    setQuestion(quizplease[quizname].questions[_id]);
   }, []);
 
   return (
