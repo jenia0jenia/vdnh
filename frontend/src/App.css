@@ -1212,9 +1212,9 @@ code {
   height: 80vh;
   overflow: hidden;
 
-  position: absolute;
+  position: relative;
   left: 0;
-  top: 0;
+  top: 100px;
   z-index: 10;
 }
 
