@@ -14,10 +14,10 @@ export type TQuizPleaseOption = {
 export type TQuestionType = 'match' | 'simple';
 
 export type TQuizPleaseQuestion = {
-  _id: number;
+  _id?: number;
   title?: string;
   options: TQuizPleaseOption[];
-  text: string;
+  text?: string;
   subtext?: string;
   images_answer?: string[];
   text_answer?: string;
@@ -28,19 +28,19 @@ export type TQuizPleaseQuestion = {
 };
 
 export type TQuizPleaseResult = {
-  title: string;
+  title?: string;
   subtitle?: string;
-  text: string;
+  text?: string;
   image?: string;
-  maxvalue: number;
-  minvalue: number;
+  maxvalue?: number;
+  minvalue?: number;
 };
 
 export type TQuizPleaseType = 'test' | 'step-by-step';
 
 export type TQuizPlease = {
   [key: string]: {
-    _id: number;
+    _id?: number;
     slug: string;
     name: string;
     background_image?: string;

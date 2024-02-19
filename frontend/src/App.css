@@ -749,6 +749,7 @@ code {
   font-weight: bold;
   color: var(--color-white);
   font-size: 27px;
+  z-index: 10;
 }
 
 .quizplease__info-start span {

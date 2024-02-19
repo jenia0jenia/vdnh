@@ -49,7 +49,7 @@ function QuizPleaseResult() {
       <div className='container m-auto'>
         <div className='quizplease__result'>
           {quizplease && (
-            <div className='basis-3/4 mb-10'>
+            <div className='basis-3/4'>
               <Confetti></Confetti>
               {quizplease[quizname].type !== 'test' && (
                 <>
@@ -78,9 +78,9 @@ function QuizPleaseResult() {
                     <div className='container m-auto'>
                       <div className='quizplease__info'>
                         <div className='basis-3/4'>
-                          <h1 className='quizplease__info-title h1'>
+                          {result.title && <h1 className='quizplease__info-title h1'>
                             {result.title}
-                          </h1>
+                          </h1>}
                           <div className='quizplease__info-rectangle'>
                             {result.subtitle && (
                               <div className='quizplease__info-description-one'>
