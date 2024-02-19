@@ -42,7 +42,7 @@ function Top({ ...props }) {
 
   return (
     <div className='Top'>
-      <h2 className='title'>Книги по количеству выдач</h2>
+      <h2 className='h2 title'>Книги по количеству выдач</h2>
       <div className='w-full m-auto mb-14'>
         <div className='flex overflow-x-auto px-10' id='bookContainer'>
           {topBooks.map((book, i) => {

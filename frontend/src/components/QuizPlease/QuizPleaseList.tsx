@@ -1,7 +1,6 @@
 import { useQuizPlease } from 'contexts/QuizPleaseContext/QuizPleaseContext';
 import { useNavigate } from 'react-router-dom';
 
-
 function QuizPleaseList() {
   const navigate = useNavigate();
   const { quizplease } = useQuizPlease();
@@ -33,7 +32,9 @@ function QuizPleaseList() {
               );
             })}
           </div>
-          <div className='scroller'></div>
+          {Object.keys(quizplease).length > 4 && (
+            <div className='scroller'></div>
+          )}
         </div>
       )}
     </>

@@ -45,9 +45,9 @@ export const BooksPerMinute: Highcharts.Options = {
       },
     },
   },
-  // time: {
-  //   useUTC: false,
-  // },
+  time: {
+    timezone: 'Europe/Moscow',
+  },
   accessibility: {
     announceNewData: {
       enabled: true,
@@ -79,6 +79,7 @@ export const BooksPerMinute: Highcharts.Options = {
     // softMin
     min: today.getTime(),
     // max: today.getTime() + 1000 * 60 * 5, // длина оси х - 5 минут
+
   },
 
   yAxis: {
