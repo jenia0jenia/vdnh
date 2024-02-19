@@ -28,15 +28,15 @@ function QuizPleaseHello() {
                   <div className='quizplease__info-description-one'>
                     {quizplease[quizname].text_before}
                   </div>
-                  <button
-                    onClick={(e) => {
-                      navigate(`/quizplease/${quizname}/0`);
-                    }}
-                    className='quizplease__info-start'
-                  >
-                    <span>Начать тест</span>
-                  </button>
                 </div>
+                <button
+                  onClick={(e) => {
+                    navigate(`/quizplease/${quizname}/0`);
+                  }}
+                  className='quizplease__info-start'
+                >
+                  Начать тест
+                </button>
               </div>
             )}
             <div className='quizplease__info-right'>
