@@ -40,7 +40,7 @@ function QuizPleaseTypeStepByStep() {
               : '100%',
           }}
         >
-          <div className='container m-auto relative'>
+          <div className='m-auto'>
             <Outlet></Outlet>
           </div>
         </div>

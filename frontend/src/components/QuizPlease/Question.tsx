@@ -2,7 +2,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import quizplease from 'data/quizplease';
 import { TQuizPleaseOption, TQuizPleaseQuestion } from 'types/quizplease';
 import { useEffect, useState } from 'react';
-import { useAnswersDispatch, useQuizPlease } from 'contexts/QuizPleaseContext/QuizPleaseContext';
+import {
+  useAnswersDispatch,
+  useQuizPlease,
+} from 'contexts/QuizPleaseContext/QuizPleaseContext';
 import { TNavParams } from './Functions';
 import { shuffle } from 'utils/index';
 // import Timer from "./Timer";
@@ -20,24 +23,23 @@ function Question() {
   const navigate = useNavigate();
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
   const { quizplease } = useQuizPlease();
+  const [pushkinPos, setPushkinPos] = useState(Math.random());
 
   useEffect(() => {
     if (quizplease[quizname].questions.length <= _id) {
-      navigate('/quizplease/' + (quizplease[quizname].questions.length - 1))
+      navigate('/quizplease/' + (quizplease[quizname].questions.length - 1));
     }
-    setQuestion(
-      quizplease[quizname].questions[_id]
-    );
+    setQuestion(quizplease[quizname].questions[_id]);
     if (quizplease[quizname].slug !== 'literature') {
       setOptions(shuffle(quizplease[quizname].questions[_id].options));
     } else {
       setOptions(quizplease[quizname].questions[_id].options);
     }
-    setUncorrectOptions([])
-    setCurrentOption(-1)
-    setSelectPair(null)
-    setSelected([])
-    setScores(0)
+    setUncorrectOptions([]);
+    setCurrentOption(-1);
+    setSelectPair(null);
+    setSelected([]);
+    setScores(0);
     console.log(currentOption);
 
     dispatch &&
@@ -66,13 +68,24 @@ function Question() {
       {/* <h1 className="text-3xl mb-4">{question.title}</h1> */}
       {/* <h2 className='text-xl'>Внимание! Вопрос!</h2> */}
       <div className='question'>
-        <div className='grid grid-cols-12'>
-          <div className='lg:col-span-2'></div>
-          <div className='col-span-12 lg:col-span-8'>
+        <div className=''>
+          <div className=''></div>
+          <div className=''>
             {quizplease && question && (
               <div className='question__inner'>
                 {question.images && (
-                  <div className='question__image-list'>
+                  <div
+                    className='question__image-list'
+                    style={
+                      pushkinPos >= 0.5
+                        ? {
+                            left: '10px',
+                          }
+                        : {
+                            right: '10px',
+                          }
+                    }
+                  >
                     {question.images.map((image, i) => {
                       return (
                         <div className='question__image' key={i}>
@@ -93,11 +106,11 @@ function Question() {
                 {question.type === 'no-correct' && <></>}
 
                 {(question.type === 'simple' || !question.type) && (
-                  <div className='options'>
+                  <div className='options options_full'>
                     {question.options.map((option, i) => {
                       return (
                         <div
-                          className={`options__item basis-1/2${
+                          className={`options__item${
                             option.image ? ' image' : ''
                           }`}
                           key={i}
@@ -131,7 +144,7 @@ function Question() {
                 )}
 
                 {question.type === 'match' && (
-                  <div className='options'>
+                  <div className='options options_full'>
                     {options.map((option, i) => {
                       const text = option.text;
                       const pair = option.pair;
@@ -173,8 +186,8 @@ function Question() {
 
                 {question.type === 'test' && (
                   <>
-                    <div className='options'>
-                      <div className='options__item basis-1/2'>
+                    <div className='options options_full'>
+                      <div className='options__item'>
                         <button
                           className={
                             'options__item-button' +
@@ -187,7 +200,7 @@ function Question() {
                           Да
                         </button>
                       </div>
-                      <div className='options__item basis-1/2'>
+                      <div className='options__item'>
                         <button
                           className={
                             'options__item-button' +

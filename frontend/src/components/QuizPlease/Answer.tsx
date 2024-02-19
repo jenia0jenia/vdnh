@@ -26,7 +26,7 @@ function Answer() {
       {/* <h1 className="text-3xl mb-4">{question.title}</h1> */}
       {/* <h2 className='text-lg'>Это правильный ответ =)</h2> */}
       <div className='answer'>
-        <div className='max-w-screen-md m-auto mb-5'>
+        <div className=''>
           {quizplease && question && (
             <>
               <div className='answer__inner'>

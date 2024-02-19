@@ -1109,7 +1109,7 @@
   "literature": {
     "_id": 0,
     "order": 1,
-    "name": "Литературный Петербург",
+    "name": "Я памятник себе воздвиг...",
     "slug": "literature",
     "type": "step-by-step",
     "color": "rgba(242, 169, 34, 0.7)",
