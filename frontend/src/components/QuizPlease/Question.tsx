@@ -20,15 +20,6 @@ function Question() {
   const navigate = useNavigate();
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
   const { quizplease } = useQuizPlease();
-  
-  // const { currentOption } = useQuizPlease();
-  // function setCurrentOption(number: any) {
-  //   dispatch &&
-  //     dispatch({
-  //       action: 'setCurrentOption',
-  //       currentOption: number
-  //     });
-  // }
 
   useEffect(() => {
     if (quizplease[quizname].questions.length <= _id) {
@@ -37,7 +28,11 @@ function Question() {
     setQuestion(
       quizplease[quizname].questions[_id]
     );
-    setOptions(shuffle(quizplease[quizname].questions[_id].options));
+    if (quizplease[quizname].slug !== 'literature') {
+      setOptions(shuffle(quizplease[quizname].questions[_id].options));
+    } else {
+      setOptions(quizplease[quizname].questions[_id].options);
+    }
     setUncorrectOptions([])
     setCurrentOption(-1)
     setSelectPair(null)

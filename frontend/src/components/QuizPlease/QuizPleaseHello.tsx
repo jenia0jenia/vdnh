@@ -12,38 +12,33 @@ import { TQuizPleaseQuestion } from 'types/quizplease';
 
 function QuizPleaseHello() {
   const navigate = useNavigate();
-  const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
-  const _id = Number(id);
-
-  const [question, setQuestion] = useState<TQuizPleaseQuestion>();
+  const { slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
   const { quizplease } = useQuizPlease();
-  useEffect(() => {
-    setQuestion(quizplease[quizname].questions[_id]);
-  }, []);
-
   return (
     <>
       {quizplease && (
         <div className='container m-auto'>
           <div className='quizplease__info'>
-            <div className='quizplease__info-left'>
-              <h1 className='quizplease__info-title h1'>
-                {quizplease[quizname].name}
-              </h1>
-              <div className='quizplease__info-rectangle'>
-                <div className='quizplease__info-description-one'>
-                  {quizplease[quizname].text_before}
+            {quizplease && (
+              <div className='quizplease__info-left'>
+                <h1 className='quizplease__info-title h1'>
+                  {quizplease[quizname].name}
+                </h1>
+                <div className='quizplease__info-rectangle'>
+                  <div className='quizplease__info-description-one'>
+                    {quizplease[quizname].text_before}
+                  </div>
+                  <button
+                    onClick={(e) => {
+                      navigate(`/quizplease/${quizname}/0`);
+                    }}
+                    className='quizplease__info-start'
+                  >
+                    <span>Начать тест</span>
+                  </button>
                 </div>
-                <button
-                  onClick={(e) => {
-                    navigate(`/quizplease/${quizname}/0`);
-                  }}
-                  className='quizplease__info-start'
-                >
-                  <span>Начать тест</span>
-                </button>
               </div>
-            </div>
+            )}
             <div className='quizplease__info-right'>
               <div className='quizplease__info-image'>
                 <img src='/images/stella_green.svg' alt='' />

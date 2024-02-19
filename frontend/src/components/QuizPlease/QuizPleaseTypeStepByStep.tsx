@@ -35,6 +35,9 @@ function QuizPleaseTypeStepByStep() {
                 ? '/bg/' + quizplease[quizname].background_image
                 : '/images/bg_figures.png'
             })`,
+            backgroundSize: quizplease[quizname].background_image
+              ? 'cover'
+              : '100%',
           }}
         >
           <div className='container m-auto relative'>

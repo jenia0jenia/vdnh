@@ -3,14 +3,6 @@ import geojson from "data/spb-district.json";
 // import { libs } from "./libs";
 
 export const Regions: Highcharts.Options = {
-  // accessibility: {
-  //   typeDescription: "Map of SPb.",
-  // },
-
-  // chart: {
-  //   // type: "area",
-  // },
-
   credits: { enabled: false },
 
   mapNavigation: {
@@ -32,18 +24,4 @@ export const Regions: Highcharts.Options = {
       [1, "#000022"],
     ],
   },
-
-  // series: [
-  //   {
-  //     mapData: geojson,
-  //     // data: (function () {
-  //     //   return stat.map(({ id, newr }) => [id.toString(), newr]);
-  //     // })(),
-  //     // dataLabels: {
-  //     //   enabled: true,
-  //     //   format: "{point.properties.localname}",
-  //     // },
-  //     // type: "area",
-  //   } as SeriesAreaOptions,
-  // ],
 };

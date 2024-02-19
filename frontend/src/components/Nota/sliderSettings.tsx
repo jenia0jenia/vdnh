@@ -7,28 +7,6 @@ interface IProps<T> {
  onClick?: MouseEventHandler<T> | undefined;
 }
 
-// function SampleNextArrow<T extends HTMLDivElement>(props: IProps<T>) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block", background: "red" }}
-//       onClick={onClick}
-//     />
-//   );
-// }
-
-// function SamplePrevArrow<T extends HTMLDivElement>(props: IProps<T>) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block", background: "green" }}
-//       onClick={onClick}
-//     />
-//   );
-// }
-
 const settings: Settings = {
   // adaptiveHeight: true,
   // dots: true,

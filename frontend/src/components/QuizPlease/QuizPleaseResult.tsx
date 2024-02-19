@@ -78,9 +78,11 @@ function QuizPleaseResult() {
                     <div className='container m-auto'>
                       <div className='quizplease__info'>
                         <div className='basis-3/4'>
-                          {result.title && <h1 className='quizplease__info-title h1'>
-                            {result.title}
-                          </h1>}
+                          {result.title && (
+                            <h1 className='quizplease__info-title h1'>
+                              {result.title}
+                            </h1>
+                          )}
                           <div className='quizplease__info-rectangle'>
                             {result.subtitle && (
                               <div className='quizplease__info-description-one'>
@@ -95,15 +97,15 @@ function QuizPleaseResult() {
                                 }}
                               ></div>
                             )}
-                            <button
-                              onClick={(e) => {
-                                navigate(`/quizplease/${quizname}/0`);
-                              }}
-                              className='quizplease__info-start'
-                            >
-                              Пройти ещё раз
-                            </button>
                           </div>
+                          <button
+                            onClick={(e) => {
+                              navigate(`/quizplease/${quizname}/0`);
+                            }}
+                            className='quizplease__info-start'
+                          >
+                            Пройти ещё раз
+                          </button>
                         </div>
                         <div className='quizplease__info-image'>
                           {result.image ? (

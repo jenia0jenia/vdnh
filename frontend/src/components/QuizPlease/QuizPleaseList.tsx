@@ -32,7 +32,7 @@ function QuizPleaseList() {
               );
             })}
           </div>
-          {Object.keys(quizplease).length > 4 && (
+          {Object.keys(quizplease).length > 5 && (
             <div className='scroller'></div>
           )}
         </div>
