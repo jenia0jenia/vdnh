@@ -5,6 +5,8 @@ export type TQuizPleaseOption = {
   image?: string;
   text?: string;
   pair?: string;
+  text_answer?: string;
+  image_answer?: string;
 };
 
 // export type TQuizPleaseOptionCompare = {

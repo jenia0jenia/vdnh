@@ -100,7 +100,8 @@ code {
   width: 100%;
 }
 
-.slider {}
+.slider {
+}
 
 .note {
   width: 200px;
@@ -111,7 +112,6 @@ code {
   background-color: var(--color-primary);
   font-size: 18px;
   color: white;
-
 }
 
 .se-extra-controls {
@@ -439,27 +439,33 @@ code {
   color: white;
   background-color: var(--color-green);
   margin: auto;
-  position: relative;
-  z-index: 20;
 }
 
 .answer__image-list {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 40px;
 }
 
 .answer__image {
-  
+
 }
 
 .answer__image img {
   height: 420px;
   width: 500px;
   object-fit: cover;
+}
+.answer__image-caption {
+  margin: 8px 0;
+  padding: 12px;
+  width: 500px;
+  background-color: var(--color-violet);
+  border-radius: 10px;
+  color: white;
 }
 
 .question__image-list {
@@ -590,7 +596,7 @@ code {
   cursor: not-allowed;
   background-color: var(--color-red-pale);
   color: var(--color-gray);
-  animation: errorButton .5s 1;
+  animation: errorButton 0.5s 1;
 }
 
 @keyframes errorButton {
@@ -627,7 +633,7 @@ code {
   background-color: var(--color-green);
 }
 .options__item-button-val1.options__item-button.disabled {
-  background-color:  var(--color-green);
+  background-color: var(--color-green);
   color: white;
   animation: none;
 }
@@ -662,13 +668,15 @@ code {
   font-size: 16px;
 }
 
-.quizplease__head-left {}
+.quizplease__head-left {
+}
 
 .quizplease__again {
   cursor: pointer;
 }
 
-.quizplease__stat {}
+.quizplease__stat {
+}
 
 .quizplease__info {
   display: flex;
@@ -882,7 +890,8 @@ code {
   border-width: 175px;
 }
 
-.timer-overlay {}
+.timer-overlay {
+}
 
 .face {
   background: rgba(0, 0, 0, 0.1);
@@ -1065,14 +1074,14 @@ code {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.at-track>.at-track-icon,
-.at-track>.at-track-details {
+.at-track > .at-track-icon,
+.at-track > .at-track-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.at-track>.at-track-icon {
+.at-track > .at-track-icon {
   flex-shrink: 0;
   font-size: 32px;
   opacity: 0.5;
@@ -1088,7 +1097,7 @@ code {
   margin-bottom: 5px;
 }
 
-.at-track:hover>.at-track-icon {
+.at-track:hover > .at-track-icon {
   opacity: 0.8;
 }
 
@@ -1096,12 +1105,12 @@ code {
   background: rgba(0, 0, 0, 0.03);
 }
 
-.at-track.active>.at-track-icon {
+.at-track.active > .at-track-icon {
   color: #4972a1;
   opacity: 1;
 }
 
-.at-track>.at-track-name {
+.at-track > .at-track-name {
   font-weight: 500;
 }
 
@@ -1114,14 +1123,14 @@ code {
   color: #fff;
 }
 
-.at-controls>div {
+.at-controls > div {
   display: flex;
   justify-content: flex-start;
   align-content: center;
   align-items: center;
 }
 
-.at-controls>div>* {
+.at-controls > div > * {
   display: flex;
   text-align: center;
   align-items: center;
@@ -1207,15 +1216,13 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 80vh;
   overflow: hidden;
-
-  position: relative;
   left: 0;
   top: 100px;
-  z-index: 10;
+  z-index: -1;
 }
 
 .confetti-piece {
@@ -1473,7 +1480,6 @@ code {
   background-repeat: no-repeat;
 }
 
-
 .menu__list {
   display: flex;
   justify-content: center;
@@ -1497,7 +1503,8 @@ code {
     flex-direction: column;
   }
 }
-.menu__item {}
+.menu__item {
+}
 
 .menu__link {
   width: 280px;

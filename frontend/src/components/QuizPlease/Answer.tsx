@@ -8,7 +8,11 @@ import {
 import { TNavParams } from './Functions';
 import Confetti from './Confetti';
 import { getQuizFromJson } from 'utils';
-import { TQuizPlease, TQuizPleaseQuestion } from 'types/quizplease';
+import {
+  TQuizPlease,
+  TQuizPleaseOption,
+  TQuizPleaseQuestion,
+} from 'types/quizplease';
 
 function Answer() {
   const { id, slug: quizname } = useParams<keyof TNavParams>() as TNavParams;
@@ -16,9 +20,12 @@ function Answer() {
   const _id = Number(id);
 
   const [question, setQuestion] = useState<TQuizPleaseQuestion>();
+  const [options, setOptions] = useState<TQuizPleaseOption[]>();
   const { quizplease } = useQuizPlease();
   useEffect(() => {
     setQuestion(quizplease[quizname].questions[_id]);
+    setOptions(quizplease[quizname].questions[_id].options);
+    console.log(quizplease[quizname].questions[_id].options[0]);
   }, []);
   return (
     <>
@@ -30,6 +37,22 @@ function Answer() {
           {quizplease && question && (
             <>
               <div className='answer__inner'>
+                {options && options[0].image_answer && (
+                  <div className='answer__image-list'>
+                    {options.map((option, i) => {
+                      return (
+                        <div className='answer__image' key={i}>
+                          <img src={`/quiz/${option.image_answer}`} alt='' />
+                          {option.text_answer && (
+                            <div className='answer__image-caption'>
+                              {option.text_answer}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
                 {question.images_answer && (
                   <div className='answer__image-list'>
                     {question.images_answer.map((image, i) => {
@@ -41,14 +64,15 @@ function Answer() {
                     })}
                   </div>
                 )}
-                {question.text_answer && (
-                  <div
-                    className='text-card text-card--violet'
-                    dangerouslySetInnerHTML={{
-                      __html: question.text_answer || '',
-                    }}
-                  ></div>
-                )}
+                {question.text_answer &&
+                  typeof question.text_answer === 'string' && (
+                    <div
+                      className='text-card text-card--violet'
+                      dangerouslySetInnerHTML={{
+                        __html: question.text_answer || '',
+                      }}
+                    ></div>
+                  )}
                 <button
                   className='answer__back-button'
                   onClick={(e) => {

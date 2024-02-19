@@ -1121,19 +1121,22 @@
         "text": "Где установлен этот образ великого поэта?",
         "type": "simple",
         "images": ["pushkin_spb.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_spb_empty.jpg",
             "text": "Санкт-Петербург",
-            "correct": true
+            "correct": true,
+            "text_answer": "Санкт-Петербург, пл. Искусств - скульптор М. Аникушин, архитектор В. Петров 1957",
+            "image_answer": "pushkin_moscow_full.jpg"
           },
           {
             "image": "pushkin_moscow_empty.jpg",
-            "text": "Москва"
+            "text": "Москва",
+            "text_answer": "г. Москва пл. Пушкинская скульптор А. Опекушин 1880 г.",
+            "image_answer": "pushkin_spb_full.jpg"
           }
-        ],
-        "images_answer": ["pushkin_spb_full.jpg", "pushkin_moscow_full.jpg"],
-        "text_answer": "Санкт-Петербург, пл. Искусств - скульптор М. Аникушин, архитектор В. Петров 1957 / г. Москва пл. Пушкинская скульптор А. Опекушин 1880 г."
+        ]
       },
       {
         "_id": 1,
@@ -1142,19 +1145,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_chel.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_kursk_empty.png",
-            "text": "Курск"
+            "text": "Курск",
+            "text_answer": "Курск, пл. Театральная, скульпторы Н. Криволапов, И. Минин, В. Бартенев 2000 г.",
+            "image_answer": "pushkin_chel_full.jpg"
           },
           {
             "image": "pushkin_chel_empty.png",
             "text": "Челябинск",
-            "correct": true
+            "correct": true,
+            "text_answer": "Челябинск Городской сад им. А. С. Пушкина, скульптор Л. Головницкий в соавт. с Э. Головницкой архитектор Н.  1983 г.",
+            "image_answer": "pushkin_kursk_full.jpg"
           }
-        ],
-        "images_answer": ["pushkin_kursk_full.jpg", "pushkin_chel_full.jpg"],
-        "text_answer": "Курск, пл. Театральная, скульпторы Н. Криволапов, И. Минин, В. Бартенев 2000 г. / Челябинск Городской сад им. А. С. Пушкина, скульптор Л. Головницкий в соавт. с Э. Головницкой архитектор Н.  1983 г."
+        ]
       },
       {
         "_id": 2,
@@ -1163,23 +1169,23 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_sarapul.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_sarapul_empty.png",
             "text": "Сарапул",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_sarapul_full.jpg",
+            "text_answer": "Сарапул, Городской сад им. А.С. Пушкина скульптор М. Альтшулер 1963 г."
           },
           {
             "image": "pushkin_yaroslavl_empty.png",
             "text": "Ярославль",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_yaroslavl_full.jpg",
+            "text_answer": "Ярославль, Ул. Октябрьская, скульптор М. Альтшулер 1957 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_sarapul_full.jpg",
-          "pushkin_yaroslavl_full.jpg"
-        ],
-        "text_answer": "Сарапул, Городской сад им. А.С. Пушкина скульптор М. Альтшулер 1963 г. / Ярославль, Ул. Октябрьская, скульптор М. Альтшулер 1957 г."
+        ]
       },
       {
         "_id": 3,
@@ -1188,22 +1194,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_rostov.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_kemerovo_empty.png",
-            "text": "Кемерово"
+            "text": "Кемерово",
+            "image_answer": "pushkin_kemerovo_full.jpg",
+            "text_answer": "Кемерово ул. Орджоникидзе, скульптор М. Манизер, архитектор В. Шалашов 1954 г."
           },
           {
             "image": "pushkin_rostov_empty.png",
             "text": "Ростов на Дону",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_rostov_full.jpg",
+            "text_answer": "Ростов на Дону Городской сад им. А. С. Пушкина, скульптор Г. Шульц, архитектор М. Минкус 1959 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_kemerovo_full.jpg",
-          "pushkin_rostov_full.jpg"
-        ],
-        "text_answer": "Кемерово ул. Орджоникидзе, скульптор М. Манизер, архитектор В. Шалашов 1954 г. / Ростов на Дону Городской сад им. А. С. Пушкина, скульптор Г. Шульц, архитектор М. Минкус 1959 г."
+        ]
       },
       {
         "_id": 4,
@@ -1212,22 +1218,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_murmansk.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_murmansk_empty.png",
             "text": "Мурманск",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_murmansk_full.jpg",
+            "text_answer": "Мурманск, сквер на ул. Пушкина скульптор Зураб Церетели 2017 г."
           },
           {
             "image": "pushkin_yoshkarola_empty.png",
-            "text": "Йошкар-Ола"
+            "text": "Йошкар-Ола",
+            "image_answer": "pushkin_yoshkarola_full.jpg",
+            "text_answer": "Йошкар-Ола, Ул. Пушкина, скульптор А. Ковальчук 2011 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_murmansk_full.jpg",
-          "pushkin_yoshkarola_full.jpg"
-        ],
-        "text_answer": "Мурманск, сквер на ул. Пушкина скульптор Зураб Церетели 2017 г. / Йошкар-Ола, Ул. Пушкина, скульптор А. Ковальчук 2011 г."
+        ]
       },
       {
         "_id": 5,
@@ -1236,22 +1242,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_izevsk.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_arzamas_empty.jpg",
-            "text": "Арзамас"
+            "text": "Арзамас",
+            "image_answer": "pushkin_arzamas_full.jpg",
+            "text_answer": "Арзамас, пл. Пушкина скульптор-академик В. Крылов 1999 г."
           },
           {
             "image": "pushkin_izevsk_empty.png",
             "text": "Ижевск",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_izevsk_full.jpg",
+            "text_answer": "Ижевск, Пл. Университетская, скульпторы А. Бурганов, И. Бурганов 2003 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_arzamas_full.jpg",
-          "pushkin_izevsk_full.jpg"
-        ],
-        "text_answer": "Арзамас, пл. Пушкина скульптор-академик В. Крылов 1999 г. / Ижевск, Пл. Университетская, скульпторы А. Бурганов, И. Бурганов 2003 г."
+        ]
       },
       {
         "_id": 6,
@@ -1260,19 +1266,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_gori.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_gori_empty.png",
             "text": "Пушкинские горы",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_gori_full.jpg",
+            "text_answer": "Пушкинские горы Михайловский сад скульптор Г. Додонова 1981 г."
           },
           {
             "image": "pushkin_luga_empty.png",
-            "text": "Луга"
+            "text": "Луга",
+            "image_answer": "pushkin_luga_full.jpg",
+            "text_answer": "Луга Городской сад скульпторы А. Зайцев и А. Рычков 2019 г."
           }
-        ],
-        "images_answer": ["pushkin_gori_full.jpg", "pushkin_luga_full.jpg"],
-        "text_answer": "Пушкинские горы Михайловский сад скульптор Г. Додонова 1981 г. / Луга Городской сад скульпторы А. Зайцев и А. Рычков 2019 г."
+        ]
       },
       {
         "_id": 7,
@@ -1281,22 +1290,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_krasnoyarsk.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_yalta_empty.png",
-            "text": "Ялта"
+            "text": "Ялта",
+            "image_answer": "pushkin_yalta_full.jpg",
+            "text_answer": "Ялта ул. Пушкинская скульптор В. Гордеев 2010 г."
           },
           {
             "image": "pushkin_krasnoyarsk_empty.png",
             "text": "Красноярск",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_krasnoyarsk_full.jpg",
+            "text_answer": "Красноярск, ул. Кирова, архитектор А. Демирханов, скульптор К. Зинич 2008 г. "
           }
-        ],
-        "images_answer": [
-          "pushkin_yalta_full.jpg",
-          "pushkin_krasnoyarsk_full.jpg"
-        ],
-        "text_answer": "Ялта ул. Пушкинская скульптор В. Гордеев 2010 г./ Красноярск, ул. Кирова, архитектор А. Демирханов, скульптор К. Зинич 2008 г. "
+        ]
       },
       {
         "_id": 8,
@@ -1305,22 +1314,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_spb2.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_kransodar_empty.jpg",
-            "text": "Краснодар"
+            "text": "Краснодар",
+            "image_answer": "pushkin_spb2_full.jpg",
+            "text_answer": "Краснодар, ул. Красная, скульптор В. Жданов, архитектор В. Карпычев 1999 г."
           },
           {
             "image": "pushkin_spb2_empty.png",
             "text": "Санкт-Петербург",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_krasnodar_full.jpg",
+            "text_answer": "Санкт-Петербург, наб. реки Мойки, скульптор Н. Дыдыкин 1950-1952 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_krasnodar_full.jpg",
-          "pushkin_spb2_full.jpg"
-        ],
-        "text_answer": "Краснодар, ул. Красная, скульптор В. Жданов, архитектор В. Карпычев 1999 г. / Санкт-Петербург, наб. реки Мойки, скульптор Н. Дыдыкин 1950-1952 г."
+        ]
       },
       {
         "_id": 9,
@@ -1329,22 +1338,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_spb3.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_habarovsk_empty.png",
-            "text": "Хабаровск"
+            "text": "Хабаровск",
+            "image_answer": "pushkin_habarovsk_full.jpg",
+            "text_answer": "Хабаровск уд. Карла Маркса, Скульптор не известен 1950 г., 1990 г. (реконструкция)"
           },
           {
             "image": "pushkin_spb3_empty.png",
             "text": "Санкт-Петербург",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_spb3_full.jpg",
+            "text_answer": "Санкт-Петербург ул. Пушкинская, скульптор А. Опекушин, архитекторы Н. Бенуа и А. Лыткин 1884 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_habarovsk_full.jpg",
-          "pushkin_spb3_full.jpg"
-        ],
-        "text_answer": "Хабаровск уд. Карла Маркса, Скульптор не известен 1950 г., 1990 г. (реконструкция) / Санкт-Петербург ул. Пушкинская, скульптор А. Опекушин, архитекторы Н. Бенуа и А. Лыткин 1884 г."
+        ]
       },
       {
         "_id": 10,
@@ -1353,22 +1362,22 @@
         "text": "",
         "type": "simple",
         "images": ["pushkin_voronez.png"],
+        "text_answer" : true,
         "options": [
           {
             "image": "pushkin_kaliningrad_empty.png",
-            "text": "Калиниград"
+            "text": "Калиниград",
+            "image_answer": "pushkin_kaliningrad_full.jpg",
+            "text_answer": "Калиниград, уд. Чайковского, Скульптор М. Аникушин 1993 г."
           },
           {
             "image": "pushkin_voronez_empty.png",
             "text": "Воронеж",
-            "correct": true
+            "correct": true,
+            "image_answer": "pushkin_voronez_full.jpg",
+            "text_answer": "Воронеж, пл. Ленина, скульпторы И. Дикунов, Э. Пак, архитектор Л. Яновский 1999 г."
           }
-        ],
-        "images_answer": [
-          "pushkin_kaliningrad_full.jpg",
-          "pushkin_voronez_full.jpg"
-        ],
-        "text_answer": "Калиниград, уд. Чайковского, Скульптор М. Аникушин 1993 г. / Воронеж, пл. Ленина, скульпторы И. Дикунов, Э. Пак, архитектор Л. Яновский 1999 г."
+        ]
       }
     ],
     "text_before": "Вы когда-нибудь задумывались сколько всего установлено памятников А.С. Пушкину? Только на территории России по приблизительным подсчетам их около 300. Попробуйте угадать, в каких городах установлены предложенные образы великому поэту. Удачи!"
