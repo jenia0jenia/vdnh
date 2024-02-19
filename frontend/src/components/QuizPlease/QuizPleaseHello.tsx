@@ -35,7 +35,7 @@ function QuizPleaseHello() {
                   }}
                   className='quizplease__info-start'
                 >
-                  Начать тест
+                  Начало
                 </button>
               </div>
             )}
