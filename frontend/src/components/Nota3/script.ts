@@ -19,9 +19,8 @@ export function alphatab(file: string) {
     fontDirectory: '/font/',
     player: {
       enablePlayer: true,
-      // soundFont: "/soundfont/sonivox.sf2",
+      soundFont: "/soundfont/sonivox.sf2",
       // soundFont: "/soundfont/wt_22khz.sf2",
-      soundFont: '/soundfont/GeneralUser_GS.sf2',
       scrollElement: wrapper.querySelector('.at-viewport'),
     },
   };

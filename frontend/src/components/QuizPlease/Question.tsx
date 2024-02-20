@@ -40,7 +40,7 @@ function Question() {
     setSelectPair(null);
     setSelected([]);
     setScores(0);
-    console.log(currentOption);
+    setPushkinPos(Math.random());
 
     dispatch &&
       dispatch({

@@ -25,7 +25,7 @@ export const BooksPerMinute: Highcharts.Options = {
         const series = this.series[0];
 
         // TODO: remove double code
-        const bookPerMinute = await apiRequest("/books/speed") || null;
+        const bookPerMinute = await apiRequest("/books/speed") || 0;
         const time = new Date().getTime();
         try {
           series.addPoint([time, bookPerMinute], true, true, true);
@@ -34,7 +34,7 @@ export const BooksPerMinute: Highcharts.Options = {
         }
 
         setInterval(async () => {
-          const bookPerMinute = await apiRequest("/books/speed") || null;
+          const bookPerMinute = await apiRequest("/books/speed") || 0;
           const time = new Date().getTime();
           try {
             series.addPoint([time, bookPerMinute], true, true, true);

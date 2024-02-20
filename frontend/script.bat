@@ -2,6 +2,7 @@ echo on
 
 call npm run build
 echo coping...
+copy README.md .\build
 copy x86_64-linux-musl-simple-http-server .\build
 copy x86_64-windows-msvc-simple-http-server.exe .\build
 echo Done!
