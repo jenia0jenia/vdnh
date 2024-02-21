@@ -7,7 +7,7 @@ services:
       context: backend
       dockerfile: Dockerfile
     environment:
-      - FRONTEND_API_URL=10.168.48.51 # react local ip address
+      - FRONTEND_API_URL=10.168.48.51 # react local ip address jenia0jenia
     networks:
       vdnhnet:
         aliases:
